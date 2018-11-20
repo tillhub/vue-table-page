@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/tillhub/vue-table-page/compare/v1.1.0...v1.2.0) (2018-11-20)
+
+
+### Features
+
+* allows user to pass initial page info ([dbc1143](https://github.com/tillhub/vue-table-page/commit/dbc1143))
+
 # [1.1.0](https://github.com/tillhub/vue-table-page/compare/v1.0.0...v1.1.0) (2018-11-20)
 
 
