@@ -46,6 +46,9 @@ export default {
       tableData: this.table
     }
   },
+  mounted () {
+    this.pageChange(this.page)
+  },
   watch: {
     page: function (pageInfo) {
       this.pageChange(pageInfo)

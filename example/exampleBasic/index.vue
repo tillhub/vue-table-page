@@ -4,7 +4,9 @@
     :message="message"
     :table-size="tableLength"
     @page-change="changeTablesPage">
-    <header-example slot="header-left"/>
+    <header-example
+      slot="header-left"
+      @staff-changed="staffChanged"/>
     <div slot="header-right">
       <el-button
         type="primary"
@@ -35,7 +37,8 @@ export default {
     return {
       tableData: mockTableData,
       tableLength: mockTableData.length,
-      message: 'This is an Example Page. There are over a hundred lines of data'
+      message: 'This is an Example Page. There are over a hundred lines of data',
+      page: { offset: 0, limit: 20 }
     }
   },
   methods: {
@@ -43,6 +46,7 @@ export default {
       const array = [...mockTableData]
       const newTable = array.splice(page.offset, page.limit)
       this.tableData = newTable
+      this.page = page
       console.log('example 1: ', page)
     },
     handleOpen (key, keyPath) {
@@ -50,6 +54,17 @@ export default {
     },
     handleClose (key, keyPath) {
       console.log(key, keyPath)
+    },
+    staffChanged (value) {
+      if (value === 'allStaff') {
+        this.tableData = mockTableData
+      } else if (value === 'staffA') {
+        this.tableData = [...mockTableData].splice(0, 50)
+      } else if (value === 'staffB') {
+        this.tableData = [...mockTableData].splice(51, 100)
+      }
+      this.tableLength = this.tableData.length
+      this.changeTablesPage(this.page)
     }
   }
 }

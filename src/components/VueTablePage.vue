@@ -29,7 +29,7 @@
         </el-row>
       </div>
       <slot name="page-table" />
-      <DefaultTable
+      <default-table
         v-show="showDefaltTable"
         :table="tableData"
         :headers="headers"
@@ -144,7 +144,15 @@ export default {
       show: this.hideInfoBtn ? true : this.showMessage,
       tableLength: this.tableSize === null ? this.tableData.length : this.tableSize,
       showDefaltTable: !this.$slots['page-table'],
-      pageInfo: this.page
+      pageInfo: this.getPage(this.page)
+    }
+  },
+  watch: {
+    tableSize: function () {
+      this.setTableLength()
+    },
+    tableData: function () {
+      this.setTableLength()
     }
   },
   methods: {
@@ -154,6 +162,16 @@ export default {
     },
     toggleShow () {
       this.show = !this.show
+    },
+    setTableLength () {
+      this.tableLength = this.tableSize === null ? this.tableData.length : this.tableSize
+    },
+    getPage (page) {
+      return {
+        offset: parseInt(page.offset) || 0,
+        limit: parseInt(page.limit) || 20,
+        callLimit: parseInt(page.callLimit) || 1000
+      }
     }
   }
 }

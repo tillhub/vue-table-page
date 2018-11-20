@@ -24,10 +24,10 @@
         :value="item.value"/>
     </el-select>
     <el-select
-      :clearable="true"
-      value="allStaff"
+      :value="staffValue"
       placeholder="Select Staff"
-      class="sm-lr-margin">
+      class="sm-lr-margin"
+      @change="changeStaff">
       <el-option
         v-for="item in staffList"
         :key="item.value"
@@ -45,7 +45,14 @@ export default {
       hideRegisters: true,
       branchList: [{ value: 'allBranch', label: 'All Branch' }],
       registersList: [{ value: 'allRegister', label: 'All Register' }],
-      staffList: [{ value: 'allStaff', label: 'All Staff' }]
+      staffList: [{ value: 'allStaff', label: 'All Staff' }, { value: 'staffA', label: 'Staff A' }, { value: 'staffB', label: 'Staff B' }],
+      staffValue: 'allStaff'
+    }
+  },
+  methods: {
+    changeStaff (value) {
+      this.staffValue = value
+      this.$emit('staff-changed', value)
     }
   }
 }
