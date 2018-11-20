@@ -56,27 +56,44 @@ There are three slots at the moment. The "header-left",  "header-right", and the
 | page-table   | no       | Middle of the page below the header and above the pagination footer.                               |
 
 ### Properties
-The components accepts optional properties.
 
-| Property        | type    | required | example        | default | description                                                                                   |
-|:--------------- |:--------|:---------|:-------------- |:------- |:--------------------------------------------------------------------------------------------- |
-| locale          | string  | no       | "de" or "en"   | "en"    | Currently only German and English is supported. Only 'de' and 'en '                           |
-| table-length    | number  | yes      | 100            | n/a     | Need to pass in how many items in table to calculate the pagination                           |
-| init-page-size  | number  | no       | 20, 50, or 100 | 20      | Will default page limit to this input on load. note the only options are 20, 50 and 100       |
-| init-page       | number  | no       | 20, 50, or 100 | 20      | Will default page number to this input on load.                                               |
-| title           | string  | no       | "Products"     | ""      | The title will appear in the top left of header in h2                                         |
-| fixed-header    | boolean | no       | true           | false   | Fixes the header at the top when scrolling                                                    |
-| message         | string  | no       | "Info Here"    | ""      | If provided a pop up box with info button will appear with message below the title if present |
-| show-message    | boolean | no       | true           | false   | on load will show or hide the message box                                                     |
-| hide-info-btn   | boolean | no       | true           | false   | Info button will not appear, and the message box will be present on load                      |
+#### The Properties for the component.
+
+| Property        | type    | required | example        | default | description                                                                                         |
+|:--------------- |:--------|:---------|:-------------- |:------- |:--------------------------------------------------------------------------------------------------- |
+| locale          | string  | no       | "de" or "en"   | "en"    | Currently only German and English is supported. Only 'de' and 'en '                                 |
+| table-size      | number  | Yes      | 100            | null    | Need the total size of table to calculate the pagination.                                           |
+| hide-pagination | boolean | no       | true           | false   | Will hide pagination footer                                                                         |
+| page            | object  | no       | { offset: 20,<br/> limit: 50,<br/> callLimit: 500}    | { offset: 0,<br/> limit: 20,<br/> callLimit: 1000}   | The offset and limit to provide if need to specify location of pagination.  The callLimit provides when the next set of data should be called     |
+| call-limit      | number  | no       | 500            | 1000    | Will hide pagination footer                                                                         |
+
+#### The additional properties for header.
+
+| Property        | type    | required | example        | default | description                                                                                         |
+|:--------------- |:--------|:---------|:-------------- |:------- |:--------------------------------------------------------------------------------------------------- |
+| title           | string  | no       | "Products"     | ""      | The title will appear in the top left of header in h2                                               |
+| fixed-header    | boolean | no       | true           | false   | Fixes the header at the top when scrolling                                                          |
+| message         | string  | no       | "Info Here"    | ""      | If provided a pop up box with info button will appear with message below the title if present       |
+| show-message    | boolean | no       | true           | false   | on load will show or hide the message box                                                           |
+| hide-info-btn   | boolean | no       | true           | false   | Info button will not appear, and the message box will be present on load                            |
+
+
+#### The additional properties for using Defalut Table. Note the default table will be used when a 'page-table' slot is not provided
+
+| Property        | type    | required | example        | default | description                                                                                          |
+|:--------------- |:--------|:---------|:-------------- |:------- |:---------------------------------------------------------------------------------------------------- |
+| table-size      | number  | no       | 100            | null    | Need the total size of table to calculate the pagination. Not required if providing full table data  |
+| table-data      | Array   | Yes      | [{key: value}] | []      | Must provide if you wish to use the default table. Needs to be an Array of objects                   |
+| headers         | Array   | Yes      | [{label: 'Lable',<br/> value: 'key',<br/> minWidth: 10,<br/>sortable: true}] | []      | Must provide the headers for the table if using defalut table. The lable and value (keys from the 'table-data' items) must be provided. Other options are providing the minWidth, or width of column, and if column is sourtable|
+
 
 ### Event
 
 The Pagination will retrun and object with the offSet and size (page limit). This should allow the use to calculate what data is in view of the table
 
-| Event        | type    | example       | default | description                                                                            |
-|:------------ |:------- |:------------- |:--------|:-------------------------------------------------------------------------------------- |
-| @page-change | fuction | (pageObj)=>{} | n/a     | Passes the offset and size in an object on pagination change { offSet: 20, size: 100}  |
+| Event        | type    | example       | default | description                                                                                             |
+|:------------ |:------- |:------------- |:--------|:--------------------------------------------------------------------------------------                  |
+| @page-change | fuction | (pageObj)=>{} | n/a     | Passes the offset and size in an object on pagination change { offset: 20, limit: 100, callNext: false}. The offset is the place the visable table begins. The limit is the number of item in visable table. the callNext is the |
 
 ## License
 
