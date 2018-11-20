@@ -24,13 +24,13 @@ export default {
       type: Number,
       required: true
     },
-    initPageSize: {
-      type: Number,
-      default: 20
+    page: {
+      type: Object,
+      required: true
     },
-    initPage: {
-      type: Number,
-      default: 1
+    showDefaltTable: {
+      type: Boolean,
+      required: true
     }
   },
   mounted () {
@@ -38,10 +38,11 @@ export default {
   },
   data () {
     return {
-      pageSize: this.initPageSize,
-      currentPage: this.initPage,
+      pageSize: this.page.limit,
+      currentPage: this.page.offset / this.page.limit,
       first: 1,
-      last: 20
+      last: 20,
+      limit: this.page.callLimit > this.tableLength ? this.page.callLimit : this.tableLength
     }
   },
   methods: {
@@ -54,13 +55,20 @@ export default {
       this.getOffSet()
     },
     getOffSet () {
-      const offSet = this.pageSize * (this.currentPage - 1)
+      const offset = this.pageSize * (this.currentPage - 1)
       const pageCalc = this.pageSize * this.currentPage
-      const page = {
-        offSet: offSet,
-        size: this.pageSize
+      let page = { ...this.page }
+      page.offset = offset
+      page.limit = this.pageSize
+      if (this.showDefaltTable) {
+        page.callNext = (page.offset + 1) > this.tableLength
+      } else {
+        page.callNext = (page.offset + 1) > this.limit
+        if (page.callNext) {
+          this.limit += this.page.callLimit
+        }
       }
-      this.first = offSet + 1
+      this.first = offset + 1
       this.last = pageCalc < this.tableLength ? pageCalc : this.tableLength
       this.$emit('page-change', page)
     }

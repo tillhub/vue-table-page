@@ -1,8 +1,9 @@
 <template>
   <vue-table-page
-    title="Example Page"
+    title="Example Page Using Default Table"
+    :table-data="tableData"
+    :headers="tableHeaders"
     :message="message"
-    :table-length="tableLength"
     @page-change="changeTablesPage">
     <header-example slot="header-left"/>
     <div slot="header-right">
@@ -12,37 +13,42 @@
         Export
       </el-button>
     </div>
-    <table-example
-      slot="page-table"
-      :table-data="tableData" />
   </vue-table-page>
 </template>
 
 <script>
 import VueTablePage from '../../src/components/VueTablePage.vue'
 import HeaderExample from './HeaderExample.vue'
-import TableExample from './TableExample.vue'
-import mockTableData from './mockTableData.js'
+import mockTableData from '../data/mockTableData.js'
 
 export default {
-  name: 'Basic',
+  name: 'DefaultTable',
   components: {
     VueTablePage,
-    HeaderExample,
-    TableExample
+    HeaderExample
   },
   data () {
     return {
       tableData: mockTableData,
       tableLength: mockTableData.length,
-      message: 'This is an Example Page. There are over a hundred lines of data'
+      tableHeaders: [{
+        label: 'Date',
+        value: 'date',
+        sortable: true
+      }, {
+        label: 'Name',
+        value: 'name',
+        sortable: true
+      }, {
+        label: 'Address',
+        value: 'address'
+      }],
+      message: 'This is an Example Page Using the Built in table and sortable headers for date and name'
     }
   },
   methods: {
     changeTablesPage (page) {
-      const array = [...mockTableData]
-      const newTable = array.splice(page.offSet, page.size)
-      this.tableData = newTable
+      console.log('example 2: ', page)
     },
     handleOpen (key, keyPath) {
       console.log(key, keyPath)

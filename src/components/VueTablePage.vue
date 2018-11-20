@@ -29,12 +29,22 @@
         </el-row>
       </div>
       <slot name="page-table" />
+      <DefaultTable
+        v-show="showDefaltTable"
+        :table="tableData"
+        :headers="headers"
+        :page="pageInfo"
+        :hide-pagination="hidePagination"
+        @sort-change="$emit('sort-change', $event)" />
     </div>
-    <div class="page-footer">
+    <div
+      class="page-footer"
+      v-show="!hidePagination"
+    >
       <pagination-footer
         :table-length="tableLength"
-        :init-page-size="initPageSize"
-        :init-page="initPage"
+        :show-defalt-table="showDefaltTable"
+        :page="pageInfo"
         @page-change="pageChange"/>
     </div>
   </div>
@@ -44,33 +54,36 @@
 import ElementLocale from 'element-ui/lib/locale'
 import MessageBox from './MessageBox.vue'
 import PaginationFooter from './PaginationFooter.vue'
+import DefaultTable from './DefaultTable.vue'
 
 import Vue from 'vue'
 import 'typeface-lato'
 import 'element-ui/lib/theme-chalk/index.css'
 import enLocale from 'element-ui/lib/locale/lang/en'
 import deLocale from 'element-ui/lib/locale/lang/de'
-import { Pagination, Button, Row, Card } from 'element-ui'
+import { Table, Pagination, Button, Row, Card } from 'element-ui'
 
 Vue.use(Pagination)
 Vue.use(Button)
 Vue.use(Row)
 Vue.use(Card)
+Vue.use(Table)
 
 export default {
   name: 'VueTablePage',
   components: {
     MessageBox,
-    PaginationFooter
+    PaginationFooter,
+    DefaultTable
   },
   props: {
     locale: {
       type: String,
       default: navigator.language
     },
-    tableLength: {
-      type: Number,
-      required: true
+    tableSize: {
+      type: Number | null,
+      default: null
     },
     title: {
       type: String,
@@ -92,17 +105,32 @@ export default {
       type: Boolean,
       default: false
     },
-    initPageSize: {
-      type: Number,
-      default: 20,
-      validator: value => {
-        return value === 20 || value === 50 || value === 100
-      }
+    hidePagination: {
+      type: Boolean,
+      default: false
     },
-    initPage: {
-      type: Number,
-      default: 1
+    tableData: {
+      type: Array,
+      default: () => []
+    },
+    headers: {
+      type: Array,
+      default: () => []
+    },
+    page: {
+      type: Object,
+      default: () => {
+        return {
+          offset: 0,
+          limit: 20,
+          callLimit: 1000
+        }
+      },
+      validator: (page) => {
+        return page.limit === 20 || page.limit === 50 || page.limit === 100
+      }
     }
+
   },
   beforeMount () {
     if (this.locale === 'de') {
@@ -113,11 +141,15 @@ export default {
   },
   data () {
     return {
-      show: this.hideInfoBtn ? true : this.showMessage
+      show: this.hideInfoBtn ? true : this.showMessage,
+      tableLength: this.tableSize === null ? this.tableData.length : this.tableSize,
+      showDefaltTable: !this.$slots['page-table'],
+      pageInfo: this.page
     }
   },
   methods: {
     pageChange (page) {
+      this.pageInfo = page
       this.$emit('page-change', page)
     },
     toggleShow () {
