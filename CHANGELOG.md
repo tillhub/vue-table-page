@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/tillhub/vue-table-page/compare/v1.0.0...v1.1.0) (2018-11-20)
+
+
+### Features
+
+* Added default table ([3e59f0e](https://github.com/tillhub/vue-table-page/commit/3e59f0e))
+
 # 1.0.0 (2018-11-15)
 
 
