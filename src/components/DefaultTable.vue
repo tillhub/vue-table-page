@@ -47,6 +47,9 @@ export default {
     }
   },
   watch: {
+    table: function (table) {
+      this.tableData = table
+    },
     page: function (pageInfo) {
       this.pageChange(pageInfo)
     }
@@ -57,7 +60,6 @@ export default {
       const array = [...this.tableData]
       const newTable = array.splice(page.offset, page.limit)
       this.tablePage = newTable
-
       this.$emit('table-change', newTable)
     },
     sortChange (info) {
@@ -79,7 +81,7 @@ export default {
     },
     getSortableType (sortable) {
       if (sortable) {
-        return this.hidePagination ? true : 'customr'
+        return this.hidePagination ? true : 'customer'
       }
       return false
     }

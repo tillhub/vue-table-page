@@ -35,10 +35,12 @@ export default {
       tableHeaders: [{
         label: 'Date',
         value: 'date',
+        minWidth: '45',
         sortable: true
       }, {
         label: 'Name',
         value: 'name',
+        minWidth: '45',
         sortable: true
       }, {
         label: 'Address',
@@ -61,7 +63,7 @@ export default {
       } else if (value === 'staffA') {
         this.tableData = [...mockTableData].splice(0, 70)
       } else if (value === 'staffB') {
-        this.tableData = [...mockTableData].splice(71, 100)
+        this.tableData = [...mockTableData].splice(71)
       }
     }
   }

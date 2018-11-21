@@ -57,9 +57,9 @@ export default {
       if (value === 'allStaff') {
         this.tableData = mockTableData
       } else if (value === 'staffA') {
-        this.tableData = [...mockTableData].splice(0, 50)
+        this.tableData = [...mockTableData].splice(0, 90)
       } else if (value === 'staffB') {
-        this.tableData = [...mockTableData].splice(51, 100)
+        this.tableData = [...mockTableData].splice(91)
       }
       this.tableLength = this.tableData.length
       this.changeTablesPage(this.page)
