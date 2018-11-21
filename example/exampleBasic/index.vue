@@ -2,7 +2,8 @@
   <vue-table-page
     title="Example Page"
     :message="message"
-    :table-size="tableLength"
+    :table-data="tableData"
+    @table-change="tableChange"
     @page-change="changeTablesPage">
     <header-example
       slot="header-left"
@@ -16,7 +17,7 @@
     </div>
     <table-example
       slot="page-table"
-      :table-data="tableData" />
+      :table-data="tablePage" />
   </vue-table-page>
 </template>
 
@@ -36,6 +37,7 @@ export default {
   data () {
     return {
       tableData: mockTableData,
+      tablePage: mockTableData,
       tableLength: mockTableData.length,
       message: 'This is an Example Page. There are over a hundred lines of data',
       page: { offset: 0, limit: 20 }
@@ -43,10 +45,6 @@ export default {
   },
   methods: {
     changeTablesPage (page) {
-      const array = [...mockTableData]
-      const newTable = array.splice(page.offset, page.limit)
-      this.tableData = newTable
-      this.page = page
       console.log('example 1: ', page)
     },
     handleOpen (key, keyPath) {
@@ -65,6 +63,10 @@ export default {
       }
       this.tableLength = this.tableData.length
       this.changeTablesPage(this.page)
+    },
+    tableChange (table) {
+      this.tablePage = table
+      console.log(table)
     }
   }
 }

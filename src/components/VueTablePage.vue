@@ -35,6 +35,7 @@
         :headers="headers"
         :page="pageInfo"
         :hide-pagination="hidePagination"
+        @table-change="$emit('table-change', $event)"
         @sort-change="$emit('sort-change', $event)" />
     </div>
     <div

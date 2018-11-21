@@ -46,9 +46,6 @@ export default {
       tableData: this.table
     }
   },
-  mounted () {
-    this.pageChange(this.page)
-  },
   watch: {
     page: function (pageInfo) {
       this.pageChange(pageInfo)
@@ -60,6 +57,8 @@ export default {
       const array = [...this.tableData]
       const newTable = array.splice(page.offset, page.limit)
       this.tablePage = newTable
+
+      this.$emit('table-change', newTable)
     },
     sortChange (info) {
       this.$emit('sort-change', info)

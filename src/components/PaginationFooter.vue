@@ -45,6 +45,11 @@ export default {
       limit: this.page.callLimit > this.tableLength ? this.page.callLimit : this.tableLength
     }
   },
+  watch: {
+    tableLength: function (length) {
+      this.handleCurrentChange(1)
+    }
+  },
   methods: {
     handleSizeChange (val) {
       this.pageSize = val
@@ -59,6 +64,7 @@ export default {
       const pageCalc = this.pageSize * this.currentPage
       let page = {
         limit: this.pageSize,
+        currentPage: this.currentPage,
         offset: offset,
         callNext: (this.currentPage + 1) > this.tableLength
       }

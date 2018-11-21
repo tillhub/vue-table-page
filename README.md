@@ -62,7 +62,8 @@ There are three slots at the moment. The "header-left",  "header-right", and the
 | Property        | type    | required | example        | default | description                                                                                         |
 |:--------------- |:--------|:---------|:-------------- |:------- |:--------------------------------------------------------------------------------------------------- |
 | locale          | string  | no       | "de" or "en"   | "en"    | Currently only German and English is supported. Only 'de' and 'en '                                 |
-| table-size      | number  | Yes      | 100            | null    | Need the total size of table to calculate the pagination.                                           |
+| table-size      | number  | no       | 100            | null    | Need the total size of table to calculate the pagination if not usting table-data                   |
+| table-data      | Array   | no       | [{key: value}] | []      | Must provide if you wish to use the @table-chagne event. Needs to be an Array of objects            |
 | hide-pagination | boolean | no       | true           | false   | Will hide pagination footer                                                                         |
 | page            | object  | no       | { offset: 20,<br/> limit: 50,<br/> callLimit: 500}    | { offset: 0,<br/> limit: 20,<br/> callLimit: 1000}   | The offset and limit to provide if need to specify location of pagination.  The callLimit provides when the next set of data should be called     |
 | call-limit      | number  | no       | 500            | 1000    | Will hide pagination footer                                                                         |
@@ -82,7 +83,6 @@ There are three slots at the moment. The "header-left",  "header-right", and the
 
 | Property        | type    | required | example        | default | description                                                                                          |
 |:--------------- |:--------|:---------|:-------------- |:------- |:---------------------------------------------------------------------------------------------------- |
-| table-size      | number  | no       | 100            | null    | Need the total size of table to calculate the pagination. Not required if providing full table data  |
 | table-data      | Array   | Yes      | [{key: value}] | []      | Must provide if you wish to use the default table. Needs to be an Array of objects                   |
 | headers         | Array   | Yes      | [{label: 'Lable',<br/> value: 'key',<br/> minWidth: 10,<br/>sortable: true}] | []      | Must provide the headers for the table if using defalut table. The lable and value (keys from the 'table-data' items) must be provided. Other options are providing the minWidth, or width of column, and if column is sourtable|
 
@@ -94,7 +94,7 @@ The Pagination will retrun and object with the offSet and size (page limit). Thi
 | Event        | type    | example       | default | description                                                                                             |
 |:------------ |:------- |:------------- |:--------|:--------------------------------------------------------------------------------------                  |
 | @page-change | fuction | (pageObj)=>{} | n/a     | Passes the offset and size in an object on pagination change { offset: 20, limit: 100, callNext: false}. The offset is the place the visable table begins. The limit is the number of item in visable table. the callNext is the |
-
+| @table-change| fuction | (pageObj)=>{} | n/a     | When the full table is provided in 'table-data' prop, this event will provided the data for the visable data |
 ## License
 
 MIT © [jmy-kellogg](https://github.com/jmy-kellogg)
