@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/tillhub/vue-table-page/compare/v1.3.0...v1.3.1) (2018-11-21)
+
+
+### Bug Fixes
+
+* fixed the table-change event ([3df939a](https://github.com/tillhub/vue-table-page/commit/3df939a))
+
 # [1.3.0](https://github.com/tillhub/vue-table-page/compare/v1.2.0...v1.3.0) (2018-11-21)
 
 
