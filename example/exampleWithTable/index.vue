@@ -37,9 +37,7 @@ export default {
         value: 'date',
         minWidth: '45',
         sortable: true,
-        format: function (date) {
-          return new Date(date).toLocaleDateString()
-        }
+        isDate: true
       }, {
         label: 'Name',
         value: 'name',

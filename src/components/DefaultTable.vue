@@ -115,8 +115,8 @@ export default {
     formatCell (header, row) {
       if (header.format) {
         return header.format(row[header.value])
-      } else if (header.shouldFormatDate) {
-        row[header.value].toLocaleDateString(this.locale)
+      } else if (header.isDate) {
+        return new Date(row[header.value]).toLocaleDateString()
       } else {
         return row[header.value]
       }

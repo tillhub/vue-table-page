@@ -94,7 +94,7 @@ Table headers parameters option for the 'headers' prop
 | value             | string       | yes       | "product_name"              | This will reference the unique key in the table options                                             |
 | minWidth          | string       | no        | "10px"                      | The column width will be dynamic. This is the minimum width the column will be.                     |
 | width             | string       | no        | "10px"                      | This will set the column width. Without it the column width will be dynamic.                        |
-| shouldFormatDate  | Boolean      | no        | true                        | This will cause the iso date to automatically format.                                               |
+| isDate            | Boolean      | no        | true                        | This will cause the date to automatically format according to locale.                               |
 | format            | Function     | no        | item=> !item ? 'n/a' : item | You can pass in a function that auto formats the cell content                                       |
 
 ### Event
