@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/tillhub/vue-table-page/compare/v1.5.0...v1.6.0) (2018-11-22)
+
+
+### Features
+
+* made isDate option for headers ([ffff107](https://github.com/tillhub/vue-table-page/commit/ffff107))
+
 # [1.5.0](https://github.com/tillhub/vue-table-page/compare/v1.4.0...v1.5.0) (2018-11-22)
 
 
