@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/tillhub/vue-table-page/compare/v1.4.0...v1.5.0) (2018-11-22)
+
+
+### Features
+
+* added formatting option for default table ([601e52c](https://github.com/tillhub/vue-table-page/commit/601e52c))
+
 # [1.4.0](https://github.com/tillhub/vue-table-page/compare/v1.3.1...v1.4.0) (2018-11-22)
 
 
