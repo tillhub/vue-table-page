@@ -36,6 +36,7 @@
         :headers="headers"
         :page="pageInfo"
         :hide-pagination="hidePagination"
+        :locale="locale"
         @table-change="$emit('table-change', $event)"
         @sort-change="$emit('sort-change', $event)" />
     </div>

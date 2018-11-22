@@ -11,8 +11,11 @@
       :prop="header.value"
       :sortable="getSortableType(header.sortable)"
       :min-width="header.minWidth || ''"
-      :width="header.width || ''" />
-  </el-table>
+      :width="header.width || ''" >
+      <template slot-scope="scope">
+        {{ formatCell(header, scope.row) }}
+      </template>
+  </el-table-column></el-table>
 </template>
 <script>
 
@@ -42,6 +45,10 @@ export default {
     },
     usingTable: {
       type: Boolean,
+      required: true
+    },
+    locale: {
+      type: String,
       required: true
     }
   },
@@ -104,7 +111,17 @@ export default {
         return this.hidePagination ? true : 'custom'
       }
       return false
+    },
+    formatCell (header, row) {
+      if (header.format) {
+        return header.format(row[header.value])
+      } else if (header.shouldFormatDate) {
+        row[header.value].toLocaleDateString(this.locale)
+      } else {
+        return row[header.value]
+      }
     }
+
   }
 }
 </script>

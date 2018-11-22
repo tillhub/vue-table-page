@@ -86,6 +86,16 @@ There are three slots at the moment. The "header-left",  "header-right", and the
 | table-data      | Array   | Yes      | [{key: value}] | []      | Must provide if you wish to use the default table. Needs to be an Array of objects                   |
 | headers         | Array   | Yes      | [{label: 'Lable',<br/> value: 'key',<br/> minWidth: 10,<br/>sortable: true}] | []      | Must provide the headers for the table if using defalut table. The lable and value (keys from the 'table-data' items) must be provided. Other options are providing the minWidth, or width of column, and if column is sourtable|
 
+Table headers parameters option for the 'headers' prop
+
+| parameter         | type         | required  | example                     | description                                                                                         |
+|:---------------   |:------------ |:--------- |:--------------------------- |:--------------------------------------------------------------------------------------------------- |
+| label             | string       | yes       | "Product Name"              | This is what will be shown in the column header                                                     |
+| value             | string       | yes       | "product_name"              | This will reference the unique key in the table options                                             |
+| minWidth          | string       | no        | "10px"                      | The column width will be dynamic. This is the minimum width the column will be.                     |
+| width             | string       | no        | "10px"                      | This will set the column width. Without it the column width will be dynamic.                        |
+| shouldFormatDate  | Boolean      | no        | true                        | This will cause the iso date to automatically format.                                               |
+| format            | Function     | no        | item=> !item ? 'n/a' : item | You can pass in a function that auto formats the cell content                                       |
 
 ### Event
 
