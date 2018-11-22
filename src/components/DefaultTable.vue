@@ -1,7 +1,8 @@
 <template>
   <el-table
-    :data="tablePage"
+    ref="defaultTable"
     style="width: 100%"
+    :data="tablePage"
     @sort-change="sortChange">
     <el-table-column
       v-for="(header, i) in headers"
@@ -38,6 +39,10 @@ export default {
     hidePagination: {
       type: Boolean,
       required: true
+    },
+    usingTable: {
+      type: Boolean,
+      required: true
     }
   },
   data () {
@@ -46,15 +51,30 @@ export default {
       tableData: this.table
     }
   },
+  mounted () {
+    this.pageChange(this.page)
+  },
   watch: {
     table: function (table) {
-      this.tableData = table
+      this.tableChange(table)
     },
-    page: function (pageInfo) {
+    page: function (pageInfo, old) {
+      if (pageInfo.offset === old.offset && pageInfo.limit === old.limit) return
       this.pageChange(pageInfo)
     }
   },
   methods: {
+    tableChange (table) {
+      if (this.usingTable) {
+        this.$refs.defaultTable.clearSort()
+      }
+      if (this.hidePagination) {
+        this.tablePage = table
+      } else {
+        this.tableData = table
+        this.pageChange(this.page)
+      }
+    },
     pageChange (page) {
       if (this.hidePagination) return
       const array = [...this.tableData]
@@ -81,7 +101,7 @@ export default {
     },
     getSortableType (sortable) {
       if (sortable) {
-        return this.hidePagination ? true : 'customer'
+        return this.hidePagination ? true : 'custom'
       }
       return false
     }

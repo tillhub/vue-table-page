@@ -1,11 +1,13 @@
 <template>
   <vue-table-page
     title="Example Page With No Footer"
+    hide-pagination
     :table-data="tableData"
     :headers="tableHeaders"
-    :message="message"
-    :hide-pagination="true">
-    <header-example slot="header-left"/>
+    :message="message">
+    <header-example
+      slot="header-left"
+      @staff-changed="staffChanged"/>
     <div slot="header-right">
       <el-button
         type="primary"
@@ -52,6 +54,15 @@ export default {
     },
     handleClose (key, keyPath) {
       console.log(key, keyPath)
+    },
+    staffChanged (value) {
+      if (value === 'allStaff') {
+        this.tableData = mockTableData
+      } else if (value === 'staffA') {
+        this.tableData = [...mockTableData].splice(0, 70)
+      } else if (value === 'staffB') {
+        this.tableData = [...mockTableData].splice(71)
+      }
     }
   }
 }

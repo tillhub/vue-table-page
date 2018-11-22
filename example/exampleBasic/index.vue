@@ -17,7 +17,9 @@
     </div>
     <table-example
       slot="page-table"
-      :table-data="tablePage" />
+      :toggle-sort="toggleSort"
+      :table-data="tablePage"
+      @sort-change="sortChange"/>
   </vue-table-page>
 </template>
 
@@ -39,6 +41,7 @@ export default {
       tableData: mockTableData,
       tablePage: mockTableData,
       tableLength: mockTableData.length,
+      toggleSort: null,
       message: 'This is an Example Page. There are over a hundred lines of data',
       page: { offset: 0, limit: 20 }
     }
@@ -62,11 +65,22 @@ export default {
         this.tableData = [...mockTableData].splice(91)
       }
       this.tableLength = this.tableData.length
+      this.toggleSort = !this.toggleSort
       this.changeTablesPage(this.page)
     },
     tableChange (table) {
-      this.tablePage = table
       console.log(table)
+      this.tablePage = table
+    },
+    sortChange (info) {
+      const compareRow = function (a, b) {
+        if (info.order === 'ascending') {
+          return a[info.prop] > b[info.prop] ? 1 : -1
+        } else {
+          return a[info.prop] < b[info.prop] ? 1 : -1
+        }
+      }
+      this.tableData = [...this.tableData].sort(compareRow)
     }
   }
 }

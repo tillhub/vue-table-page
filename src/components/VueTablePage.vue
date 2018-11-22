@@ -31,6 +31,7 @@
       <slot name="page-table" />
       <default-table
         v-show="showDefaltTable"
+        :using-table="showDefaltTable"
         :table="tableData"
         :headers="headers"
         :page="pageInfo"
