@@ -116,7 +116,8 @@ export default {
       if (header.format) {
         return header.format(row[header.value])
       } else if (header.isDate) {
-        return new Date(row[header.value]).toLocaleDateString()
+        if (!row[header.value]) return null
+        return new Date(row[header.value]).toLocaleDateString(this.locale)
       } else {
         return row[header.value]
       }
