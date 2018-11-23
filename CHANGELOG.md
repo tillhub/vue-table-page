@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/tillhub/vue-table-page/compare/v1.6.0...v1.6.1) (2018-11-23)
+
+
+### Bug Fixes
+
+* **defaultTable:** default table isDate takes null ([308ecfd](https://github.com/tillhub/vue-table-page/commit/308ecfd))
+
 # [1.6.0](https://github.com/tillhub/vue-table-page/compare/v1.5.0...v1.6.0) (2018-11-22)
 
 
