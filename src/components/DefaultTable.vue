@@ -55,7 +55,8 @@ export default {
   data () {
     return {
       tablePage: this.table,
-      tableData: this.table
+      tableData: this.table,
+      info: {}
     }
   },
   mounted () {
@@ -90,21 +91,28 @@ export default {
       this.$emit('table-change', newTable)
     },
     sortChange (info) {
+      this.info = info
       this.$emit('sort-change', info)
       if (this.hidePagination) return
-      const compareRow = function (a, b) {
-        if (info.order === 'ascending') {
-          return a[info.prop] > b[info.prop] ? 1 : -1
-        } else {
-          return a[info.prop] < b[info.prop] ? 1 : -1
-        }
-      }
+
       if (!info.order) {
         this.tableData = [...this.table]
       } else {
-        this.tableData = [...this.table].sort(compareRow)
+        this.tableData = [...this.table].sort(this.compareRow)
       }
       this.pageChange(this.page)
+    },
+    compareRow (a, b) {
+      let A = typeof a[this.info.prop] === 'string' ? a[this.info.prop].toLowerCase() : a[this.info.prop]
+      let B = typeof b[this.info.prop] === 'string' ? b[this.info.prop].toLowerCase() : b[this.info.prop]
+      if (A === B) return 0
+      if (A === null) return 1
+      if (B === null) return -1
+      if (this.info.order === 'ascending') {
+        return A > B ? 1 : -1
+      } else if (this.info.order === 'descending') {
+        return A < B ? 1 : -1
+      }
     },
     getSortableType (sortable) {
       if (sortable) {

@@ -12,7 +12,7 @@ const tableData = [{
   address: 'No. 189, Grove St, Los Angeles'
 }, {
   date: '2016-05-01',
-  name: 'Tom',
+  name: null,
   address: 'No. 189, Grove St, Los Angeles'
 }, {
   date: '2016-05-03',
@@ -48,7 +48,7 @@ const tableData = [{
   address: 'No. 189, Grove St, Los Angeles'
 },
 {
-  date: '2016-05-03',
+  date: null,
   name: 'Sam',
   address: 'No. 189, Grove St, Los Angeles'
 }, {
@@ -70,7 +70,7 @@ const tableData = [{
 }, {
   date: '2016-05-02',
   name: 'Anne',
-  address: 'No. 189, Grove St, Los Angeles'
+  address: null
 }, {
   date: '2016-05-04',
   name: 'Bob',
