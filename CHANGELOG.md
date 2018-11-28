@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/tillhub/vue-table-page/compare/v1.6.1...v1.7.0) (2018-11-28)
+
+
+### Features
+
+* sorting table will null pushed to the bottom ([e569c43](https://github.com/tillhub/vue-table-page/commit/e569c43))
+
 ## [1.6.1](https://github.com/tillhub/vue-table-page/compare/v1.6.0...v1.6.1) (2018-11-23)
 
 
