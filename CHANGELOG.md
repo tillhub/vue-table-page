@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/tillhub/vue-table-page/compare/v1.7.0...v1.8.0) (2018-12-06)
+
+
+### Features
+
+* added table-max-height prop ([239277d](https://github.com/tillhub/vue-table-page/commit/239277d))
+
 # [1.7.0](https://github.com/tillhub/vue-table-page/compare/v1.6.1...v1.7.0) (2018-11-28)
 
 
