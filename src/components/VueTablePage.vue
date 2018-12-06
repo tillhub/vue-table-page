@@ -3,7 +3,7 @@
     id="vue-table-page">
     <div class="main">
       <div
-        class="header"
+        class="table-page-header"
         :class="{ 'fixed-header': fixedHeader }">
         <h2 v-if="title">{{ title }}</h2>
         <message-box
@@ -28,17 +28,20 @@
           </div>
         </el-row>
       </div>
-      <slot name="page-table" />
-      <default-table
-        v-show="showDefaltTable"
-        :using-table="showDefaltTable"
-        :table="tableData"
-        :headers="headers"
-        :page="pageInfo"
-        :hide-pagination="hidePagination"
-        :locale="locale"
-        @table-change="$emit('table-change', $event)"
-        @sort-change="$emit('sort-change', $event)" />
+      <div class="table-page-body">
+        <slot name="page-table" />
+        <default-table
+          v-show="showDefaltTable"
+          :using-table="showDefaltTable"
+          :table="tableData"
+          :headers="headers"
+          :page="pageInfo"
+          :hide-pagination="hidePagination"
+          :locale="locale"
+          :table-max-height="tableMaxHeight"
+          @table-change="$emit('table-change', $event)"
+          @sort-change="$emit('sort-change', $event)" />
+      </div>
     </div>
     <div
       class="page-footer"
@@ -132,8 +135,11 @@ export default {
       validator: (page) => {
         return page.limit === 20 || page.limit === 50 || page.limit === 100
       }
+    },
+    tableMaxHeight: {
+      type: Number | String,
+      default: 'auto'
     }
-
   },
   beforeMount () {
     if (this.locale === 'de') {
@@ -196,12 +202,10 @@ span {
   width: 100%;
   overflow: auto;
 }
-.header {
-  width: 100%;
-}
 
-.main {
-  padding: 20px 20px 80px 20px;
+.table-page-header {
+  padding: 20px;
+  padding-bottom: 0px;
 }
 
 .page-footer {
@@ -237,5 +241,9 @@ span {
 .header-row {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.table-page-body {
+  padding: 0px 20px 80px 20px;
 }
 </style>

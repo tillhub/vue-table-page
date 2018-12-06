@@ -79,11 +79,12 @@ There are three slots at the moment. The "header-left",  "header-right", and the
 | hide-info-btn   | boolean | no       | true           | false   | Info button will not appear, and the message box will be present on load                            |
 
 
-#### The additional properties for using Defalut Table. Note the default table will be used when a 'page-table' slot is not provided
+#### The additional properties for using Defalut Table. Note the default table will be used when a 'page-table' slot is not provided 
 
 | Property        | type    | required | example        | default | description                                                                                          |
 |:--------------- |:--------|:---------|:-------------- |:------- |:---------------------------------------------------------------------------------------------------- |
 | table-data      | Array   | Yes      | [{key: value}] | []      | Must provide if you wish to use the default table. Needs to be an Array of objects                   |
+| table-max-height| Number/string | No | 1000           | 'auto'  | You can apply a custom height to make the header stationary and table scrollable                     |
 | headers         | Array   | Yes      | [{label: 'Lable',<br/> value: 'key',<br/> minWidth: 10,<br/>sortable: true}] | []      | Must provide the headers for the table if using defalut table. The lable and value (keys from the 'table-data' items) must be provided. Other options are providing the minWidth, or width of column, and if column is sourtable|
 
 Table headers parameters option for the 'headers' prop

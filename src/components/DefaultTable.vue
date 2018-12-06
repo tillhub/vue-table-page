@@ -3,6 +3,7 @@
     ref="defaultTable"
     style="width: 100%"
     :data="tablePage"
+    :max-height="tableMaxHeight"
     @sort-change="sortChange">
     <el-table-column
       v-for="(header, i) in headers"
@@ -15,7 +16,8 @@
       <template slot-scope="scope">
         {{ formatCell(header, scope.row) }}
       </template>
-  </el-table-column></el-table>
+    </el-table-column>
+  </el-table>
 </template>
 <script>
 
@@ -50,6 +52,10 @@ export default {
     locale: {
       type: String,
       required: true
+    },
+    tableMaxHeight: {
+      type: Number | String,
+      default: 'auto'
     }
   },
   data () {

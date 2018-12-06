@@ -24,17 +24,25 @@
         <i class="el-icon-document"/>
         <span>No Pagination</span>
       </el-menu-item>
+      <el-menu-item
+        index="4"
+        @click="goTo">
+        <i class="el-icon-document"/>
+        <span>Fixed Header</span>
+      </el-menu-item>
     </el-menu>
     <basic-example v-show="shouldShow('1')"/>
     <with-table v-show="shouldShow('2')"/>
     <no-pagination v-show="shouldShow('3')"/>
+    <fixed-header v-show="shouldShow('4')"/>
   </div>
 </template>
 
 <script>
 import BasicExample from './exampleBasic/index.vue'
 import WithTable from './exampleWithTable/index.vue'
-import NoPagination from './exapmleNoPagination/index.vue'
+import NoPagination from './exampleNoPagination/index.vue'
+import FixedHeader from './exampleFixedHeader/index.vue'
 import Vue from 'vue'
 
 import 'element-ui/lib/theme-chalk/index.css'
@@ -48,7 +56,8 @@ export default {
   components: {
     BasicExample,
     WithTable,
-    NoPagination
+    NoPagination,
+    FixedHeader
   },
   data () {
     return {
