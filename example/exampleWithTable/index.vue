@@ -8,13 +8,6 @@
     <header-example
       slot="header-left"
       @staff-changed="staffChanged"/>
-    <div slot="header-right">
-      <el-button
-        type="primary"
-        class="sm-margin">
-        Export
-      </el-button>
-    </div>
   </vue-table-page>
 </template>
 
@@ -46,15 +39,23 @@ export default {
         sortable: true
       }, {
         label: 'Address',
-        minWidth: '300',
+        width: '500',
         value: 'address'
       }, {
         label: 'Address 2',
-        minWidth: '300',
+        width: '500',
         value: 'address'
       }, {
         label: 'Address 3',
-        minWidth: '300',
+        width: '500',
+        value: 'address'
+      }, {
+        label: 'Address 4',
+        width: '500',
+        value: 'address'
+      }, {
+        label: 'Address 5',
+        width: '500',
         value: 'address'
       }],
       message: 'This is an Example Page Using the Built in table and sortable headers for date and name. Starting on second page',
