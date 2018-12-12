@@ -57,7 +57,7 @@ export default {
 }
 .message-box {
   border: 1px solid #269ff6;
-  margin: 0px 10px;
+  margin: 10px;
 }
 .closeBtn {
   border: none;

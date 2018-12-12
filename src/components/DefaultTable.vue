@@ -2,11 +2,13 @@
   <el-table
     ref="defaultTable"
     style="width: 100%"
+    :height="tableHeight"
     :data="tablePage"
     :max-height="tableMaxHeight"
     @sort-change="sortChange">
     <el-table-column
       v-for="(header, i) in headers"
+      :fixed="header.fixed || false"
       :key="i"
       :label="header.label"
       :prop="header.value"
@@ -56,6 +58,10 @@ export default {
     tableMaxHeight: {
       type: Number | String,
       default: 'auto'
+    },
+    tableHeight: {
+      type: Number | String,
+      default: '100%'
     }
   },
   data () {

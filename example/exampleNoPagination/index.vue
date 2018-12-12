@@ -83,4 +83,8 @@ body {
 .full-height {
   height: 100vh;
 }
+
+.sm-margin{
+  margin: 10px
+}
 </style>

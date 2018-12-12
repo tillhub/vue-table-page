@@ -28,13 +28,20 @@
         index="4"
         @click="goTo">
         <i class="el-icon-document"/>
-        <span>Fixed Header</span>
+        <span>Custom Header</span>
+      </el-menu-item>
+      <el-menu-item
+        index="5"
+        @click="goTo">
+        <i class="el-icon-document"/>
+        <span>No Header</span>
       </el-menu-item>
     </el-menu>
-    <basic-example v-show="shouldShow('1')"/>
-    <with-table v-show="shouldShow('2')"/>
-    <no-pagination v-show="shouldShow('3')"/>
-    <fixed-header v-show="shouldShow('4')"/>
+    <basic-example v-if="shouldShow('1')"/>
+    <with-table v-if="shouldShow('2')"/>
+    <no-pagination v-if="shouldShow('3')"/>
+    <custom-header v-if="shouldShow('4')"/>
+    <no-header v-if="shouldShow('5')"/>
   </div>
 </template>
 
@@ -42,7 +49,8 @@
 import BasicExample from './exampleBasic/index.vue'
 import WithTable from './exampleWithTable/index.vue'
 import NoPagination from './exampleNoPagination/index.vue'
-import FixedHeader from './exampleFixedHeader/index.vue'
+import CustomHeader from './exampleCustomHeader/index.vue'
+import NoHeader from './noHeader/index.vue'
 import Vue from 'vue'
 
 import 'element-ui/lib/theme-chalk/index.css'
@@ -57,7 +65,8 @@ export default {
     BasicExample,
     WithTable,
     NoPagination,
-    FixedHeader
+    CustomHeader,
+    NoHeader
   },
   data () {
     return {
