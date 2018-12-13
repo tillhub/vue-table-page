@@ -31,7 +31,7 @@ export default {
         width: '100',
         sortable: true,
         fixed: 'left',
-        isDate: true
+        type: 'date'
       }, {
         label: 'Name',
         value: 'name',
@@ -41,6 +41,12 @@ export default {
         label: 'Phone',
         value: 'phone.work',
         minWidth: '150'
+      }, {
+        label: 'Currency',
+        value: 'amount',
+        minWidth: '200',
+        type: 'currency',
+        sortable: true
       }, {
         label: 'Address',
         width: '500',

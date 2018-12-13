@@ -36,7 +36,7 @@ export default {
         value: 'date',
         minWidth: '45',
         sortable: true,
-        isDate: true
+        type: 'date'
       }, {
         label: 'Name',
         value: 'name',
@@ -46,6 +46,7 @@ export default {
         label: 'Address',
         value: 'address'
       }],
+      showMessage: true,
       message: 'This is an Example Page Using the Built in table and sortable headers for date and name. Starting on second page',
       page: { offset: 20, limit: 100 }
     }

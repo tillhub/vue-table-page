@@ -21,8 +21,10 @@
     </el-table-column>
   </el-table>
 </template>
+
 <script>
 import safeGet from 'just-safe-get'
+const currencyFormatter = require('currency-formatter')
 
 export default {
   name: 'Table',
@@ -63,6 +65,10 @@ export default {
     tableHeight: {
       type: Number | String,
       default: '100%'
+    },
+    emptyDisplay: {
+      type: String,
+      required: true
     }
   },
   data () {
@@ -138,14 +144,19 @@ export default {
 
       if (header.format) {
         return header.format(cellValue)
-      } else if (header.isDate) {
-        if (!cellValue) return null
+      } else if (cellValue === null || cellValue === undefined) {
+        return this.emptyDisplay
+      } else if (header.type === 'date') {
         return new Date(cellValue).toLocaleDateString(this.locale)
+      } else if (header.type === 'currency') {
+        const value = parseInt(cellValue)
+        return currencyFormatter.format(value, {
+          code: row.currency || null
+        })
       } else {
         return cellValue
       }
     }
-
   }
 }
 </script>

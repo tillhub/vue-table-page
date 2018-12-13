@@ -79,17 +79,17 @@ There are three slots at the moment. The "header-left",  "header-right", and the
 | title           | string  | no       | "Products"     | ""      | The title will appear in the top left of header in h2                                               |
 | message         | string  | no       | "Info Here"    | ""      | If provided a pop up box with info button will appear with message below the title if present       |
 | show-message    | boolean | no       | true           | false   | on load will show or hide the message box                                                           |
-| hide-info-btn   | boolean | no       | true           | false   | Info button will not appear, and the message box will be present on load                            |
 
 
 #### The additional properties for using Defalut Table. Note the default table will be used when a 'page-table' slot is not provided 
 
-| Property        | type    | required | example        | default | description                                                                                          |
-|:--------------- |:--------|:---------|:-------------- |:------- |:---------------------------------------------------------------------------------------------------- |
-| table-data      | Array   | Yes      | [{key: value}] | []      | Must provide if you wish to use the default table. Needs to be an Array of objects                   |
-| table-max-height| Number/string | No | 1000           | 'auto'  | You can apply a custom max-height to make the header stationary and table scrollable                 |
-| table-height    | Number/string | No | 1000           | '100%'  | You can apply a custom height to make the header stationary and table scrollable                     |
-| headers         | Array   | Yes      | [{label: 'Lable',<br/> value: 'key',<br/> minWidth: 10,<br/>sortable: true}] | []      | Must provide the headers for the table if using defalut table. The lable and value (keys from the 'table-data' items) must be provided. Other options are providing the minWidth, or width of column, and if column is sourtable|
+| Property        | type          | required | example        | default | description                                                                                          |
+|:--------------- |:------------- |:---------|:-------------- |:------- |:---------------------------------------------------------------------------------------------------- |
+| table-data      | Array         | Yes      | [{key: value}] | []      | Must provide if you wish to use the default table. Needs to be an Array of objects                   |
+| table-max-height| Number/string | No       | 1000           | 'auto'  | You can apply a custom max-height to make the header stationary and table scrollable                 |
+| table-height    | Number/string | No       | 1000           | '100%'  | You can apply a custom height                                                                        |
+| empty-display   | String        | No       | 'N/A'          | '--'    | Apply a custom default display when the value of cell is null                                        |
+| headers         | Array         | Yes      | [{label: 'Lable',<br/> value: 'key',<br/> minWidth: 10,<br/>sortable: true}] | []      | Must provide the headers for the table if using defalut table. The lable and value (keys from the 'table-data' items) must be provided. Other options are providing the minWidth, or width of column, and if column is sourtable|
 
 Table headers parameters option for the 'headers' prop
 
@@ -99,7 +99,7 @@ Table headers parameters option for the 'headers' prop
 | value             | string         | yes       | "product_name"                  | This will reference the unique key in the table options                                |
 | minWidth          | string         | no        | "10px"                          | The column width will be dynamic. This is the minimum width the column will be.        |
 | width             | string         | no        | "10px"                          | This will set the column width. Without it the column width will be dynamic.           |
-| isDate            | Boolean        | no        | true                            | This will cause the date to automatically format according to locale.                  |
+| type              | string         | no        | "date", "currency"              | This will format the value according to the local for either date or currency          |
 | fixed             | string/Boolean | no        | "left", "right", "top", "bottom"| This will make the entire column fixed.                                                |
 | format            | Function       | no        | item=> !item ? 'n/a' : item     | You can pass in a function that auto formats the cell content                          |
 

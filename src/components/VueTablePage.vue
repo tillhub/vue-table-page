@@ -8,7 +8,6 @@
           v-if="title">{{ title }}</span>
         <message-box
           v-if="message"
-          :hide-info-btn="hideInfoBtn"
           :message="message"
           :show="show"
           @toggle-show="toggleShow"/>
@@ -42,6 +41,7 @@
           :locale="locale"
           :table-max-height="tableMaxHeight"
           :table-height="tableHeight"
+          :empty-display="emptyDisplay"
           @table-change="$emit('table-change', $event)"
           @sort-change="$emit('sort-change', $event)" />
       </div>
@@ -107,10 +107,6 @@ export default {
       type: Boolean,
       default: false
     },
-    hideInfoBtn: {
-      type: Boolean,
-      default: false
-    },
     hidePagination: {
       type: Boolean,
       default: false
@@ -147,6 +143,10 @@ export default {
     tableHeight: {
       type: Number | String,
       default: '100%'
+    },
+    emptyDisplay: {
+      type: String,
+      default: '--'
     }
   },
   beforeMount () {
@@ -162,12 +162,12 @@ export default {
   },
   data () {
     return {
-      show: this.hideInfoBtn ? true : this.showMessage,
+      show: this.message.length ? this.showMessage : false,
       tableLength: this.tableSize === null ? this.tableData.length : this.tableSize,
       showDefaltTable: !this.$slots['page-table'],
       pageInfo: this.getPage(this.page),
       height: '100%',
-      showInfoButton: !this.hideInfoBtn && this.message.length
+      showInfoButton: this.message.length
     }
   },
   watch: {
