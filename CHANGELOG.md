@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/tillhub/vue-table-page/compare/v2.1.0...v2.2.0) (2018-12-13)
+
+
+### Features
+
+* **default table:** Enable nested getters for table columns ([261b0c4](https://github.com/tillhub/vue-table-page/commit/261b0c4))
+
 # [2.1.0](https://github.com/tillhub/vue-table-page/compare/v2.0.0...v2.1.0) (2018-12-13)
 
 
