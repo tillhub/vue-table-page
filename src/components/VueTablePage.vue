@@ -220,7 +220,7 @@ span {
 
 .table-page-main {
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .el-icon-info {
