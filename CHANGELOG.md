@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/tillhub/vue-table-page/compare/v2.2.0...v3.0.0) (2018-12-13)
+
+
+### Features
+
+* added option to set null cell display and type to be date or currency ([330975c](https://github.com/tillhub/vue-table-page/commit/330975c))
+
+
+### BREAKING CHANGES
+
+* isDate should become type:'date'
+
 # [2.2.0](https://github.com/tillhub/vue-table-page/compare/v2.1.0...v2.2.0) (2018-12-13)
 
 
