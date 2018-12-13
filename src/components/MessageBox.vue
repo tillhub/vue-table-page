@@ -37,10 +37,6 @@ export default {
     show: {
       type: Boolean,
       default: false
-    },
-    hideInfoBtn: {
-      type: Boolean,
-      default: false
     }
   },
   methods: {
