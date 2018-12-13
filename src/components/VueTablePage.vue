@@ -29,7 +29,7 @@
       </div>
       <div
         class="table-page-body"
-        :style="{ height: height}">
+        :style="{ height }">
         <slot name="page-table" />
         <default-table
           v-show="showDefaltTable"
