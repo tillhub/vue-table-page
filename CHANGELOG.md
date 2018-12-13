@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/tillhub/vue-table-page/compare/v2.0.0...v2.1.0) (2018-12-13)
+
+
+### Features
+
+* main app overflow auto ([9c21a80](https://github.com/tillhub/vue-table-page/commit/9c21a80))
+
 # [2.0.0](https://github.com/tillhub/vue-table-page/compare/v1.8.0...v2.0.0) (2018-12-13)
 
 
