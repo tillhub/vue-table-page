@@ -38,6 +38,10 @@ export default {
         minWidth: '100',
         sortable: true
       }, {
+        label: 'Phone',
+        value: 'phone.work',
+        minWidth: '150'
+      }, {
         label: 'Address',
         width: '500',
         value: 'address'
