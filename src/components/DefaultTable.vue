@@ -22,6 +22,7 @@
   </el-table>
 </template>
 <script>
+import safeGet from 'just-safe-get'
 
 export default {
   name: 'Table',
@@ -133,13 +134,15 @@ export default {
       return false
     },
     formatCell (header, row) {
+      const cellValue = safeGet(row, header.value)
+
       if (header.format) {
-        return header.format(row[header.value])
+        return header.format(cellValue)
       } else if (header.isDate) {
-        if (!row[header.value]) return null
-        return new Date(row[header.value]).toLocaleDateString(this.locale)
+        if (!cellValue) return null
+        return new Date(cellValue).toLocaleDateString(this.locale)
       } else {
-        return row[header.value]
+        return cellValue
       }
     }
 
