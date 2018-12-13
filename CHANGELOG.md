@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/tillhub/vue-table-page/compare/v1.8.0...v2.0.0) (2018-12-13)
+
+
+### Features
+
+* Added fix column option on fixed scrolling ([ca568b1](https://github.com/tillhub/vue-table-page/commit/ca568b1))
+
+
+### BREAKING CHANGES
+
+* removed built in padding
+
 # [1.8.0](https://github.com/tillhub/vue-table-page/compare/v1.7.0...v1.8.0) (2018-12-06)
 
 
