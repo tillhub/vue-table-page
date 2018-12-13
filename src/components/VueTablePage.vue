@@ -1,11 +1,11 @@
 <template>
   <div
     id="vue-table-page">
-    <div class="main">
-      <div
-        class="table-page-header"
-        :class="{ 'fixed-header': fixedHeader }">
-        <h2 v-if="title">{{ title }}</h2>
+    <div class="table-page-main">
+      <div ref="tablePageHeader">
+        <span
+          class="header-title"
+          v-if="title">{{ title }}</span>
         <message-box
           v-if="message"
           :hide-info-btn="hideInfoBtn"
@@ -14,12 +14,11 @@
           @toggle-show="toggleShow"/>
         <el-row
           type="flex"
-          class="header-row"
           justify="space-between">
           <div class="flex">
             <i
               class="el-icon-info"
-              v-show="!hideInfoBtn"
+              v-show="showInfoButton"
               @click="toggleShow"/>
             <slot name="header-left" />
           </div>
@@ -28,7 +27,9 @@
           </div>
         </el-row>
       </div>
-      <div class="table-page-body">
+      <div
+        class="table-page-body"
+        :style="{ height }">
         <slot name="page-table" />
         <default-table
           v-show="showDefaltTable"
@@ -36,17 +37,16 @@
           :table="tableData"
           :headers="headers"
           :page="pageInfo"
+          :page-sizes="pageSizes"
           :hide-pagination="hidePagination"
           :locale="locale"
           :table-max-height="tableMaxHeight"
+          :table-height="tableHeight"
           @table-change="$emit('table-change', $event)"
           @sort-change="$emit('sort-change', $event)" />
       </div>
     </div>
-    <div
-      class="page-footer"
-      v-show="!hidePagination"
-    >
+    <div v-show="!hidePagination">
       <pagination-footer
         :table-length="tableLength"
         :show-defalt-table="showDefaltTable"
@@ -136,9 +136,17 @@ export default {
         return page.limit === 20 || page.limit === 50 || page.limit === 100
       }
     },
+    pageSizes: {
+      type: Array,
+      default: () => [20, 50, 100]
+    },
     tableMaxHeight: {
       type: Number | String,
       default: 'auto'
+    },
+    tableHeight: {
+      type: Number | String,
+      default: '100%'
     }
   },
   beforeMount () {
@@ -148,12 +156,18 @@ export default {
       ElementLocale.use(enLocale)
     }
   },
+  updated () {
+    const height = this.$refs.tablePageHeader.clientHeight || 0
+    this.height = `calc(100% - ${height}px)`
+  },
   data () {
     return {
       show: this.hideInfoBtn ? true : this.showMessage,
       tableLength: this.tableSize === null ? this.tableData.length : this.tableSize,
       showDefaltTable: !this.$slots['page-table'],
-      pageInfo: this.getPage(this.page)
+      pageInfo: this.getPage(this.page),
+      height: '100%',
+      showInfoButton: !this.hideInfoBtn && this.message.length
     }
   },
   watch: {
@@ -200,50 +214,35 @@ span {
 #vue-table-page {
   height: 100%;
   width: 100%;
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.table-page-header {
-  padding: 20px;
-  padding-bottom: 0px;
-}
-
-.page-footer {
-  height: 80px;
-  width: 100%;
-  bottom: 0;
-  left: 0px;
-  position: fixed;
-  background-color: #fafafa;
-  z-index: 1;
-}
-
-.fixed-header {
-  position: sticky;
-  position: -webkit-sticky;
-  top: -1px;
-  z-index: 1;
-  background-color: white;
+.table-page-main {
+  height: 100%;
+  overflow: hidden;
 }
 
 .el-icon-info {
   color: #269ff6;
   font-size: x-large;
   cursor: pointer;
-  margin-top: 10px;
-  margin-right: 10px;
+  margin: 10px;
+
 }
 
 .el-icon-info:hover {
   color: #1b7abe;
 }
 
-.header-row {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.table-page-body {
+  overflow: auto
 }
 
-.table-page-body {
-  padding: 0px 20px 80px 20px;
+.header-title {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 20px;
 }
 </style>

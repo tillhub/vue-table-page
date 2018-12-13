@@ -8,13 +8,6 @@
     <header-example
       slot="header-left"
       @staff-changed="staffChanged"/>
-    <div slot="header-right">
-      <el-button
-        type="primary"
-        class="sm-margin">
-        Export
-      </el-button>
-    </div>
   </vue-table-page>
 </template>
 
@@ -35,20 +28,38 @@ export default {
       tableHeaders: [{
         label: 'Date',
         value: 'date',
-        minWidth: '45',
+        width: '100',
         sortable: true,
+        fixed: 'left',
         isDate: true
       }, {
         label: 'Name',
         value: 'name',
-        minWidth: '45',
+        minWidth: '100',
         sortable: true
       }, {
         label: 'Address',
+        width: '500',
+        value: 'address'
+      }, {
+        label: 'Address 2',
+        width: '500',
+        value: 'address'
+      }, {
+        label: 'Address 3',
+        width: '500',
+        value: 'address'
+      }, {
+        label: 'Address 4',
+        width: '500',
+        value: 'address'
+      }, {
+        label: 'Address 5',
+        width: '500',
         value: 'address'
       }],
       message: 'This is an Example Page Using the Built in table and sortable headers for date and name. Starting on second page',
-      page: { offset: 20, limit: 20 }
+      page: { offset: 20, limit: 50 }
     }
   },
   methods: {
@@ -85,5 +96,9 @@ body {
 
 .full-height {
   height: 100vh;
+}
+
+.sm-margin{
+  margin: 10px
 }
 </style>

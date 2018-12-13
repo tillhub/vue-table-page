@@ -1,5 +1,6 @@
 <template>
   <el-row
+    class="sm-margin"
     type="flex">
     <el-select
       :clearable="true"
@@ -83,5 +84,9 @@ export default {
 .no-url p {
   white-space: pre-line;
   text-align: center;
+}
+
+.sm-margin {
+  margin: 10px;
 }
 </style>

@@ -5,7 +5,7 @@
       <el-pagination
         layout="sizes, prev, pager, next, jumper"
         :current-page.sync="currentPage"
-        :page-sizes="[20, 50, 100]"
+        :page-sizes="pageSizes"
         :page-size="pageSize"
         :total="tableLength"
         @size-change="handleSizeChange"
@@ -31,6 +31,10 @@ export default {
     showDefaltTable: {
       type: Boolean,
       required: true
+    },
+    pageSizes: {
+      type: Array,
+      default: () => [20, 50, 100]
     }
   },
   mounted () {
@@ -88,24 +92,25 @@ export default {
 .footer-content {
   width: 100%;
   display: flex;
-  margin: 25px 0px;
+  padding: 20px 0px;
   justify-content: center;
+  background-color: #fafafa;
 }
 
 .page-count {
   margin: 5px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .el-pagination > ul > li,
 .el-pagination .btn-next,
 .el-pagination .btn-prev {
   background-color: #fafafa !important;
-  font-size: 20px !important;
+  font-size: 18px !important;
 }
 
 .el-pagination .btn-next .el-icon,
 .el-pagination .btn-prev .el-icon {
-  font-size: 20px !important;
+  font-size: 18px !important;
 }
 </style>

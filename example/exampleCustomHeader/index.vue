@@ -3,7 +3,6 @@
     fixed-header
     :table-data="tableData"
     :headers="tableHeaders"
-    :message="message"
     :page="page">
     <header-example
       slot="header-left"
@@ -24,7 +23,7 @@ import HeaderExample from './HeaderExample.vue'
 import mockTableData from '../data/mockTableData.js'
 
 export default {
-  name: 'DefaultTable',
+  name: 'CustomHeader',
   components: {
     VueTablePage,
     HeaderExample
@@ -48,7 +47,7 @@ export default {
         value: 'address'
       }],
       message: 'This is an Example Page Using the Built in table and sortable headers for date and name. Starting on second page',
-      page: { offset: 20, limit: 20 }
+      page: { offset: 20, limit: 100 }
     }
   },
   methods: {
@@ -85,5 +84,9 @@ body {
 
 .full-height {
   height: 100vh;
+}
+
+.sm-margin{
+  margin: 10px
 }
 </style>

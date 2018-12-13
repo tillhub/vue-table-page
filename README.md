@@ -31,7 +31,7 @@ npm install --save @tillhub/vue-table-page
 
 <script>
 import VueTablePage from '@tillhub/vue-table-page'
-import '@tillhub/vue-table-page/vue-table-page.css'
+import '@tillhub/vue-table-page/dist/vue-table-page.css'
 
 export default {
   name: 'App',
@@ -46,6 +46,9 @@ export default {
 }
 </script>
 ```
+### CSS
+import '@tillhub/vue-table-page/dist/vue-table-page.css'
+
 ### Slots
 There are three slots at the moment. The "header-left",  "header-right", and the "page-table". 
 
@@ -66,14 +69,14 @@ There are three slots at the moment. The "header-left",  "header-right", and the
 | table-data      | Array   | no       | [{key: value}] | []      | Must provide if you wish to use the @table-chagne event. Needs to be an Array of objects            |
 | hide-pagination | boolean | no       | true           | false   | Will hide pagination footer                                                                         |
 | page            | object  | no       | { offset: 20,<br/> limit: 50,<br/> callLimit: 500}    | { offset: 0,<br/> limit: 20,<br/> callLimit: 1000}   | The offset and limit to provide if need to specify location of pagination.  The callLimit provides when the next set of data should be called     |
-| call-limit      | number  | no       | 500            | 1000    | Will hide pagination footer                                                                         |
+| page-Sizes      | Array   | no       | [100, 200]     | [20, 50, 100] | Sets the page size option in footer                                                                 |
+| call-limit      | number  | no       | 500            | 1000          | Will hide pagination footer                                                                         |
 
 #### The additional properties for header.
 
 | Property        | type    | required | example        | default | description                                                                                         |
 |:--------------- |:--------|:---------|:-------------- |:------- |:--------------------------------------------------------------------------------------------------- |
 | title           | string  | no       | "Products"     | ""      | The title will appear in the top left of header in h2                                               |
-| fixed-header    | boolean | no       | true           | false   | Fixes the header at the top when scrolling                                                          |
 | message         | string  | no       | "Info Here"    | ""      | If provided a pop up box with info button will appear with message below the title if present       |
 | show-message    | boolean | no       | true           | false   | on load will show or hide the message box                                                           |
 | hide-info-btn   | boolean | no       | true           | false   | Info button will not appear, and the message box will be present on load                            |
@@ -84,19 +87,21 @@ There are three slots at the moment. The "header-left",  "header-right", and the
 | Property        | type    | required | example        | default | description                                                                                          |
 |:--------------- |:--------|:---------|:-------------- |:------- |:---------------------------------------------------------------------------------------------------- |
 | table-data      | Array   | Yes      | [{key: value}] | []      | Must provide if you wish to use the default table. Needs to be an Array of objects                   |
-| table-max-height| Number/string | No | 1000           | 'auto'  | You can apply a custom height to make the header stationary and table scrollable                     |
+| table-max-height| Number/string | No | 1000           | 'auto'  | You can apply a custom max-height to make the header stationary and table scrollable                 |
+| table-height    | Number/string | No | 1000           | '100%'  | You can apply a custom height to make the header stationary and table scrollable                     |
 | headers         | Array   | Yes      | [{label: 'Lable',<br/> value: 'key',<br/> minWidth: 10,<br/>sortable: true}] | []      | Must provide the headers for the table if using defalut table. The lable and value (keys from the 'table-data' items) must be provided. Other options are providing the minWidth, or width of column, and if column is sourtable|
 
 Table headers parameters option for the 'headers' prop
 
-| parameter         | type         | required  | example                     | description                                                                                         |
-|:---------------   |:------------ |:--------- |:--------------------------- |:--------------------------------------------------------------------------------------------------- |
-| label             | string       | yes       | "Product Name"              | This is what will be shown in the column header                                                     |
-| value             | string       | yes       | "product_name"              | This will reference the unique key in the table options                                             |
-| minWidth          | string       | no        | "10px"                      | The column width will be dynamic. This is the minimum width the column will be.                     |
-| width             | string       | no        | "10px"                      | This will set the column width. Without it the column width will be dynamic.                        |
-| isDate            | Boolean      | no        | true                        | This will cause the date to automatically format according to locale.                               |
-| format            | Function     | no        | item=> !item ? 'n/a' : item | You can pass in a function that auto formats the cell content                                       |
+| parameter         | type           | required  | example                         | description                                                                            |
+|:---------------   |:-------------- |:--------- |:--------------------------------|:-------------------------------------------------------------------------------------- |
+| label             | string         | yes       | "Product Name"                  | This is what will be shown in the column header                                        |
+| value             | string         | yes       | "product_name"                  | This will reference the unique key in the table options                                |
+| minWidth          | string         | no        | "10px"                          | The column width will be dynamic. This is the minimum width the column will be.        |
+| width             | string         | no        | "10px"                          | This will set the column width. Without it the column width will be dynamic.           |
+| isDate            | Boolean        | no        | true                            | This will cause the date to automatically format according to locale.                  |
+| fixed             | string/Boolean | no        | "left", "right", "top", "bottom"| This will make the entire column fixed.                                                |
+| format            | Function       | no        | item=> !item ? 'n/a' : item     | You can pass in a function that auto formats the cell content                          |
 
 ### Event
 
