@@ -1,3 +1,11 @@
+# [3.1.0](https://github.com/tillhub/vue-table-page/compare/v3.0.0...v3.1.0) (2018-12-14)
+
+
+### Features
+
+* **default-table:** add remote-sort property ([2fc80ef](https://github.com/tillhub/vue-table-page/commit/2fc80ef))
+* **default-table:** pass row to format function ([7c34f21](https://github.com/tillhub/vue-table-page/commit/7c34f21))
+
 # [3.0.0](https://github.com/tillhub/vue-table-page/compare/v2.2.0...v3.0.0) (2018-12-13)
 
 
