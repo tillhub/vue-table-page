@@ -4,6 +4,7 @@
     :table-data="tableData"
     :headers="tableHeaders"
     :message="message"
+    :remote-sort="false"
     :page="page">
     <header-example
       slot="header-left"

@@ -31,8 +31,8 @@
         :style="{ height }">
         <slot name="page-table" />
         <default-table
-          v-show="showDefaltTable"
-          :using-table="showDefaltTable"
+          v-show="showDefaultTable"
+          :using-table="showDefaultTable"
           :table="tableData"
           :headers="headers"
           :page="pageInfo"
@@ -42,6 +42,7 @@
           :table-max-height="tableMaxHeight"
           :table-height="tableHeight"
           :empty-display="emptyDisplay"
+          :remote-sort="remoteSort"
           @table-change="$emit('table-change', $event)"
           @sort-change="$emit('sort-change', $event)" />
       </div>
@@ -49,7 +50,7 @@
     <div v-show="!hidePagination">
       <pagination-footer
         :table-length="tableLength"
-        :show-defalt-table="showDefaltTable"
+        :show-default-table="showDefaultTable"
         :page="pageInfo"
         @page-change="pageChange"/>
     </div>
@@ -147,6 +148,10 @@ export default {
     emptyDisplay: {
       type: String,
       default: '--'
+    },
+    remoteSort: {
+      type: Boolean,
+      default: false
     }
   },
   beforeMount () {
@@ -164,7 +169,7 @@ export default {
     return {
       show: this.message.length ? this.showMessage : false,
       tableLength: this.tableSize === null ? this.tableData.length : this.tableSize,
-      showDefaltTable: !this.$slots['page-table'],
+      showDefaultTable: !this.$slots['page-table'],
       pageInfo: this.getPage(this.page),
       height: '100%',
       showInfoButton: this.message.length
