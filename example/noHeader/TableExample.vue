@@ -10,12 +10,14 @@
         :sort-orders="['ascending', 'descending']"
         prop="date"
         label="Date"
+        :formatter="formatDate"
         width="180" />
       <el-table-column
         sortable="custom"
         :sort-orders="['ascending', 'descending']"
-        prop="name"
+        prop="firstname"
         label="Name"
+        :formatter="formatName"
         width="180" />
       <el-table-column
         prop="address"
@@ -35,6 +37,14 @@ export default {
     toggleSort: {
       type: Boolean || null,
       default: null
+    }
+  },
+  methods: {
+    formatName (row, column, cellValue, index) {
+      return `${row.firstname ? row.firstname : '--'} ${row.lastname ? row.lastname : ' --'}`
+    },
+    formatDate (row, column, cellValue, index) {
+      return cellValue ? new Date(cellValue).toLocaleDateString('en-US') : '--'
     }
   },
   watch: {

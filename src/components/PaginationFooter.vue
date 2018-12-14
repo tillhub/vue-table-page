@@ -28,7 +28,7 @@ export default {
       type: Object,
       required: true
     },
-    showDefaltTable: {
+    showDefaultTable: {
       type: Boolean,
       required: true
     },
@@ -73,7 +73,7 @@ export default {
         callNext: (this.currentPage + 1) > this.tableLength
       }
 
-      if (!this.showDefaltTable) {
+      if (!this.showDefaultTable) {
         page.callNext = (offset + 1) > this.limit
         if (page.callNext) {
           this.limit += this.page.callLimit

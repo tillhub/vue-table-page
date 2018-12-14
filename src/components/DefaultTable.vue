@@ -69,6 +69,10 @@ export default {
     emptyDisplay: {
       type: String,
       required: true
+    },
+    remoteSort: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -111,15 +115,18 @@ export default {
     },
     sortChange (info) {
       this.info = info
-      this.$emit('sort-change', info)
-      if (this.hidePagination) return
 
-      if (!info.order) {
-        this.tableData = [...this.table]
+      if (this.remoteSort) {
+        return this.$emit('sort-change', info)
       } else {
-        this.tableData = [...this.table].sort(this.compareRow)
+        if (this.hidePagination) return
+        if (!info.order) {
+          this.tableData = [...this.table]
+        } else {
+          this.tableData = [...this.table].sort(this.compareRow)
+        }
+        this.pageChange(this.page)
       }
-      this.pageChange(this.page)
     },
     compareRow (a, b) {
       let A = typeof a[this.info.prop] === 'string' ? a[this.info.prop].toLowerCase() : a[this.info.prop]
@@ -143,7 +150,7 @@ export default {
       const cellValue = safeGet(row, header.value)
 
       if (header.format) {
-        return header.format(cellValue)
+        return header.format(row)
       } else if (cellValue === null || cellValue === undefined) {
         return this.emptyDisplay
       } else if (header.type === 'date') {
