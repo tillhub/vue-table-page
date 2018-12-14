@@ -143,7 +143,7 @@ export default {
       const cellValue = safeGet(row, header.value)
 
       if (header.format) {
-        return header.format(cellValue)
+        return header.format(row)
       } else if (cellValue === null || cellValue === undefined) {
         return this.emptyDisplay
       } else if (header.type === 'date') {
