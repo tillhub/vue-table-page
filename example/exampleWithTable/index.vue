@@ -34,15 +34,16 @@ export default {
         type: 'date'
       }, {
         label: 'Name',
-        value: 'name',
+        value: 'firstname',
         minWidth: '100',
-        sortable: true
+        sortable: true,
+        format: this.formatName
       }, {
         label: 'Phone',
         value: 'phone.work',
         minWidth: '150'
       }, {
-        label: 'Currency',
+        label: 'Amount',
         value: 'amount',
         minWidth: '200',
         type: 'currency',
@@ -87,6 +88,9 @@ export default {
       } else if (value === 'staffB') {
         this.tableData = [...mockTableData].splice(71)
       }
+    },
+    formatName (row) {
+      return `${row.firstname ? row.firstname : '--'} ${row.lastname ? row.lastname : ' --'}`
     }
   }
 }

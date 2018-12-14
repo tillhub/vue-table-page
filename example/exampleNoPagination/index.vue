@@ -36,11 +36,13 @@ export default {
       tableHeaders: [{
         label: 'Date',
         value: 'date',
-        sortable: true
+        sortable: true,
+        type: 'date'
       }, {
         label: 'Name',
-        value: 'name',
-        sortable: true
+        value: 'firstname',
+        sortable: true,
+        format: this.formatName
       }, {
         label: 'Address',
         value: 'address'
@@ -63,6 +65,9 @@ export default {
       } else if (value === 'staffB') {
         this.tableData = [...mockTableData].splice(71)
       }
+    },
+    formatName (row) {
+      return `${row.firstname ? row.firstname : '--'} ${row.lastname ? row.lastname : ' --'}`
     }
   }
 }
