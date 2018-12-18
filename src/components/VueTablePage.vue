@@ -62,19 +62,8 @@ import ElementLocale from 'element-ui/lib/locale'
 import MessageBox from './MessageBox.vue'
 import PaginationFooter from './PaginationFooter.vue'
 import DefaultTable from './DefaultTable.vue'
-
-import Vue from 'vue'
-import 'typeface-lato'
-import 'element-ui/lib/theme-chalk/index.css'
 import enLocale from 'element-ui/lib/locale/lang/en'
 import deLocale from 'element-ui/lib/locale/lang/de'
-import { Table, Pagination, Button, Row, Card } from 'element-ui'
-
-Vue.use(Pagination)
-Vue.use(Button)
-Vue.use(Row)
-Vue.use(Card)
-Vue.use(Table)
 
 export default {
   name: 'VueTablePage',

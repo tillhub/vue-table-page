@@ -52,7 +52,6 @@ import NoPagination from './exampleNoPagination/index.vue'
 import CustomHeader from './exampleCustomHeader/index.vue'
 import NoHeader from './noHeader/index.vue'
 import Vue from 'vue'
-
 import 'element-ui/lib/theme-chalk/index.css'
 import enLocale from 'element-ui/lib/locale/lang/en'
 import ElementUI from 'element-ui'

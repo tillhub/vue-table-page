@@ -28,7 +28,12 @@ import VueTablePage from '../../src/components/VueTablePage.vue'
 import HeaderExample from './HeaderExample.vue'
 import TableExample from './TableExample.vue'
 import mockTableData from '../data/mockTableData.js'
+import Vue from 'vue'
+import 'element-ui/lib/theme-chalk/index.css'
+import enLocale from 'element-ui/lib/locale/lang/en'
+import ElementUI from 'element-ui'
 
+Vue.use(ElementUI, { enLocale })
 export default {
   name: 'Basic',
   components: {
