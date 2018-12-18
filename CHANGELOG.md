@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/tillhub/vue-table-page/compare/v3.1.0...v3.2.0) (2018-12-18)
+
+
+### Features
+
+* removed Element UI, chalk.css, and font-lato to reduce build file size ([e358d61](https://github.com/tillhub/vue-table-page/commit/e358d61))
+
 # [3.1.0](https://github.com/tillhub/vue-table-page/compare/v3.0.0...v3.1.0) (2018-12-14)
 
 
