@@ -30,6 +30,12 @@ npm install --save @tillhub/vue-table-page
 </template>
 
 <script>
+import Vue from 'vue'
+import 'element-ui/lib/theme-chalk/index.css'
+import ElementUI from 'element-ui'
+
+Vue.use(ElementUI)
+
 import VueTablePage from '@tillhub/vue-table-page'
 import '@tillhub/vue-table-page/dist/vue-table-page.css'
 
