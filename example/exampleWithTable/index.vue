@@ -36,7 +36,7 @@ export default {
       }, {
         label: 'Name',
         value: 'firstname',
-        minWidth: '100',
+        minWidth: '200',
         sortable: true,
         format: this.formatName
       }, {

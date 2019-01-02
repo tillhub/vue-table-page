@@ -2,7 +2,9 @@
   <div
     id="vue-table-page">
     <div class="table-page-main">
-      <div ref="tablePageHeader">
+      <div
+        ref="tablePageHeader"
+        :style="headerStyle">
         <span
           class="header-title"
           v-if="title">{{ title }}</span>
@@ -141,18 +143,22 @@ export default {
     remoteSort: {
       type: Boolean,
       default: false
+    },
+    headerStyle: {
+      type: Object,
+      default: () => {}
     }
   },
   beforeMount () {
-    if (this.locale === 'de') {
-      ElementLocale.use(deLocale)
-    } else {
-      ElementLocale.use(enLocale)
-    }
+    this.setLocale(this.locale)
+  },
+  mounted () {
+    this.initialHeight = this.$refs.tablePageHeader.clientHeight || 0
   },
   updated () {
-    const height = this.$refs.tablePageHeader.clientHeight || 0
-    this.height = `calc(100% - ${height}px)`
+    if (this.show) {
+      this.heightWithInfoBox = this.$refs.tablePageHeader.clientHeight || 0
+    }
   },
   data () {
     return {
@@ -160,7 +166,8 @@ export default {
       tableLength: this.tableSize === null ? this.tableData.length : this.tableSize,
       showDefaultTable: !this.$slots['page-table'],
       pageInfo: this.getPage(this.page),
-      height: '100%',
+      initialHeight: '100%',
+      heightWithInfoBox: '100%',
       showInfoButton: this.message.length
     }
   },
@@ -170,6 +177,15 @@ export default {
     },
     tableData: function () {
       this.setTableLength()
+    },
+    locale: function (val) {
+      this.setLocale(val)
+    }
+  },
+  computed: {
+    height () {
+      const currentHeight = this.show ? this.heightWithInfoBox : this.initialHeight
+      return `calc(100% - ${currentHeight}px)`
     }
   },
   methods: {
@@ -188,6 +204,14 @@ export default {
         offset: parseInt(page.offset) || 0,
         limit: parseInt(page.limit) || 20,
         callLimit: parseInt(page.callLimit) || 1000
+      }
+    },
+    setLocale (val) {
+      const lang = val ? val.substring(0, 2) : 'en'
+      if (lang === 'de') {
+        ElementLocale.use(deLocale)
+      } else {
+        ElementLocale.use(enLocale)
       }
     }
   }

@@ -68,15 +68,16 @@ There are three slots at the moment. The "header-left",  "header-right", and the
 
 #### The Properties for the component.
 
-| Property        | type    | required | example        | default | description                                                                                         |
-|:--------------- |:--------|:---------|:-------------- |:------- |:--------------------------------------------------------------------------------------------------- |
-| locale          | string  | no       | "de" or "en"   | "en"    | Currently only German and English is supported. Only 'de' and 'en '                                 |
-| table-size      | number  | no       | 100            | null    | Need the total size of table to calculate the pagination if not usting table-data                   |
-| table-data      | Array   | no       | [{key: value}] | []      | Must provide if you wish to use the @table-chagne event. Needs to be an Array of objects            |
-| hide-pagination | boolean | no       | true           | false   | Will hide pagination footer                                                                         |
+| Property        | type    | required | example            | default | description                                                                                         |
+|:--------------- |:--------|:---------|:------------------ |:------- |:--------------------------------------------------------------------------------------------------- |
+| locale          | string  | no       | "de" or "en"       | "en"    | Currently only German and English is supported. Only 'de' and 'en '                                 |
+| table-size      | number  | no       | 100                | null    | Need the total size of table to calculate the pagination if not usting table-data                   |
+| table-data      | Array   | no       | [{key: value}]     | []      | Must provide if you wish to use the @table-chagne event. Needs to be an Array of objects            |
+| hide-pagination | boolean | no       | true               | false   | Will hide pagination footer                                                                         |
 | page            | object  | no       | { offset: 20,<br/> limit: 50,<br/> callLimit: 500}    | { offset: 0,<br/> limit: 20,<br/> callLimit: 1000}   | The offset and limit to provide if need to specify location of pagination.  The callLimit provides when the next set of data should be called     |
-| page-Sizes      | Array   | no       | [100, 200]     | [20, 50, 100] | Sets the page size option in footer                                                                 |
-| call-limit      | number  | no       | 500            | 1000          | Will hide pagination footer                                                                         |
+| page-Sizes      | Array   | no       | [100, 200]         | [20, 50, 100] | Sets the page size option in footer                                                           |
+| call-limit      | number  | no       | 500                | 1000          | Will hide pagination footer                                                                   |
+| header-style    | css Obj | no       | { padding: '10px'} | {}            | Will update style for header                                                                  |
 
 #### The additional properties for header.
 
