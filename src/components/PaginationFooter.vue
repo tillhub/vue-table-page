@@ -102,14 +102,14 @@ export default {
   font-size: 18px;
 }
 
-.el-pagination > ul > li,
+.footer-content > div > .el-pagination > ul > li,
 .el-pagination .btn-next,
 .el-pagination .btn-prev {
   background-color: #fafafa !important;
   font-size: 18px !important;
 }
 
-.el-pagination .btn-next .el-icon,
+.footer-content > div > .el-pagination .btn-next .el-icon,
 .el-pagination .btn-prev .el-icon {
   font-size: 18px !important;
 }
