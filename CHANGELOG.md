@@ -1,3 +1,10 @@
+# [3.3.0](https://github.com/tillhub/vue-table-page/compare/v3.2.0...v3.3.0) (2019-01-03)
+
+
+### Features
+
+* misc updates ([1444aa6](https://github.com/tillhub/vue-table-page/commit/1444aa6))
+
 # [3.2.0](https://github.com/tillhub/vue-table-page/compare/v3.1.0...v3.2.0) (2018-12-18)
 
 
