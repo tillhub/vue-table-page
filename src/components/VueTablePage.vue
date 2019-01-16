@@ -28,28 +28,31 @@
           </div>
         </el-row>
       </div>
-      <el-card
+      <div
         v-if="bodyCard"
-        class="table-page-body"
-        :style="{ height, margin: '10px', width: `calc(100% - 20px)` }"
-        :body-style="{ height: '100%', padding: '0px' }">
-        <slot name="page-table" />
-        <default-table
-          v-show="showDefaultTable"
-          :using-table="showDefaultTable"
-          :table="tableData"
-          :headers="headers"
-          :page="pageInfo"
-          :page-sizes="pageSizes"
-          :hide-pagination="hidePagination"
-          :locale="locale"
-          :table-max-height="tableMaxHeight"
-          :table-height="tableHeight"
-          :empty-display="emptyDisplay"
-          :remote-sort="remoteSort"
-          @table-change="$emit('table-change', $event)"
-          @sort-change="$emit('sort-change', $event)" />
-      </el-card>
+        :style="{ height, padding: '10px', width: `calc(100% - 20px)`}">
+        <el-card
+          class="table-page-body"
+          :style="{ height: '100%', width: '100%' }"
+          :body-style="{ height: '100%', padding: '0px' }">
+          <slot name="page-table" />
+          <default-table
+            v-show="showDefaultTable"
+            :using-table="showDefaultTable"
+            :table="tableData"
+            :headers="headers"
+            :page="pageInfo"
+            :page-sizes="pageSizes"
+            :hide-pagination="hidePagination"
+            :locale="locale"
+            :table-max-height="tableMaxHeight"
+            :table-height="tableHeight"
+            :empty-display="emptyDisplay"
+            :remote-sort="remoteSort"
+            @table-change="$emit('table-change', $event)"
+            @sort-change="$emit('sort-change', $event)" />
+        </el-card>
+      </div>
       <div
         v-else
         class="table-page-body"
