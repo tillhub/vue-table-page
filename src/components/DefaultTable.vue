@@ -1,7 +1,7 @@
 <template>
+
   <el-table
     ref="defaultTable"
-    style="width: 100%"
     :height="tableHeight"
     :data="tablePage"
     :max-height="tableMaxHeight"
@@ -20,6 +20,7 @@
       </template>
     </el-table-column>
   </el-table>
+
 </template>
 
 <script>

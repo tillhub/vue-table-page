@@ -28,7 +28,30 @@
           </div>
         </el-row>
       </div>
+      <el-card
+        v-if="bodyCard"
+        class="table-page-body"
+        :style="{ height, margin: '10px', width: `calc(100% - 20px)` }"
+        :body-style="{ height: '100%', padding: '0px' }">
+        <slot name="page-table" />
+        <default-table
+          v-show="showDefaultTable"
+          :using-table="showDefaultTable"
+          :table="tableData"
+          :headers="headers"
+          :page="pageInfo"
+          :page-sizes="pageSizes"
+          :hide-pagination="hidePagination"
+          :locale="locale"
+          :table-max-height="tableMaxHeight"
+          :table-height="tableHeight"
+          :empty-display="emptyDisplay"
+          :remote-sort="remoteSort"
+          @table-change="$emit('table-change', $event)"
+          @sort-change="$emit('sort-change', $event)" />
+      </el-card>
       <div
+        v-else
         class="table-page-body"
         :style="{ height }">
         <slot name="page-table" />
@@ -147,6 +170,10 @@ export default {
     headerStyle: {
       type: Object,
       default: () => {}
+    },
+    bodyCard: {
+      type: Boolean,
+      default: false
     }
   },
   beforeMount () {
@@ -185,7 +212,9 @@ export default {
   computed: {
     height () {
       const currentHeight = this.show ? this.heightWithInfoBox : this.initialHeight
-      return `calc(100% - ${currentHeight}px)`
+      const marginCalc = this.bodyCard ? 20 : 0
+      this.$emit('height-change', currentHeight)
+      return `calc(100% - ${currentHeight}px - ${marginCalc}px)`
     }
   },
   methods: {

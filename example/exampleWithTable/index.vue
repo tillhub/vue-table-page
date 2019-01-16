@@ -5,7 +5,8 @@
     :headers="tableHeaders"
     :message="message"
     :remote-sort="false"
-    :page="page">
+    :page="page"
+    :body-card="true">
     <header-example
       slot="header-left"
       @staff-changed="staffChanged"/>

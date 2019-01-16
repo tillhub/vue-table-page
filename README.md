@@ -78,6 +78,7 @@ There are three slots at the moment. The "header-left",  "header-right", and the
 | page-Sizes      | Array   | no       | [100, 200]         | [20, 50, 100] | Sets the page size option in footer                                                           |
 | call-limit      | number  | no       | 500                | 1000          | Will hide pagination footer                                                                   |
 | header-style    | css Obj | no       | { padding: '10px'} | {}            | Will update style for header                                                                  |
+| body-card       | bollean | no       | true               | false         | Will apply a card style around body                                                           |
 
 #### The additional properties for header.
 
@@ -119,6 +120,8 @@ The Pagination will retrun and object with the offSet and size (page limit). Thi
 |:------------ |:------- |:------------- |:--------|:--------------------------------------------------------------------------------------                  |
 | @page-change | fuction | (pageObj)=>{} | n/a     | Passes the offset and size in an object on pagination change { offset: 20, limit: 100, callNext: false}. The offset is the place the visable table begins. The limit is the number of item in visable table. the callNext is the |
 | @table-change| fuction | (pageObj)=>{} | n/a     | When the full table is provided in 'table-data' prop, this event will provided the data for the visable data |
+| @height-change| number | 235 | n/a     | This will emit the height the body is after calculating header changes. this allows for dynamic sizing     |
+
 ## License
 
 MIT © [jmy-kellogg](https://github.com/jmy-kellogg)
