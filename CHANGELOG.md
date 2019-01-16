@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/tillhub/vue-table-page/compare/v3.4.0...v3.5.0) (2019-01-16)
+
+
+### Features
+
+* fixed padding ([d7db849](https://github.com/tillhub/vue-table-page/commit/d7db849))
+
 # [3.4.0](https://github.com/tillhub/vue-table-page/compare/v3.3.0...v3.4.0) (2019-01-16)
 
 
