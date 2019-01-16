@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/tillhub/vue-table-page/compare/v3.3.0...v3.4.0) (2019-01-16)
+
+
+### Features
+
+* Added a body-card prop for styling ([4b87571](https://github.com/tillhub/vue-table-page/commit/4b87571))
+
 # [3.3.0](https://github.com/tillhub/vue-table-page/compare/v3.2.0...v3.3.0) (2019-01-03)
 
 
