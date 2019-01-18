@@ -1,3 +1,10 @@
+# [3.6.0](https://github.com/tillhub/vue-table-page/compare/v3.5.0...v3.6.0) (2019-01-18)
+
+
+### Features
+
+* emitting height ([be78b1a](https://github.com/tillhub/vue-table-page/commit/be78b1a))
+
 # [3.5.0](https://github.com/tillhub/vue-table-page/compare/v3.4.0...v3.5.0) (2019-01-16)
 
 
