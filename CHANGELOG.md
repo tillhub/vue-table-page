@@ -1,3 +1,10 @@
+## [3.6.1](https://github.com/tillhub/vue-table-page/compare/v3.6.0...v3.6.1) (2019-01-18)
+
+
+### Bug Fixes
+
+* fixed hight card overflow ([e4ad234](https://github.com/tillhub/vue-table-page/commit/e4ad234))
+
 # [3.6.0](https://github.com/tillhub/vue-table-page/compare/v3.5.0...v3.6.0) (2019-01-18)
 
 
