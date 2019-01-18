@@ -215,9 +215,8 @@ export default {
   computed: {
     height () {
       const currentHeight = this.show ? this.heightWithInfoBox : this.initialHeight
-      const marginCalc = this.bodyCard ? 20 : 0
-      this.$emit('height-change', currentHeight)
-      return `calc(100% - ${currentHeight}px - ${marginCalc}px)`
+      this.$emit('height-change', `calc(100% - ${currentHeight}px`)
+      return `calc(100% - ${currentHeight}px`
     }
   },
   methods: {
