@@ -92,7 +92,7 @@ export default {
 .footer-content {
   width: 100%;
   display: flex;
-  padding: 20px 0px;
+  padding: 14px 0px;
   justify-content: center;
   background-color: #fafafa;
 }

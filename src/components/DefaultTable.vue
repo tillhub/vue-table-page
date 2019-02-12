@@ -157,7 +157,7 @@ export default {
       } else if (header.type === 'date') {
         return new Date(cellValue).toLocaleDateString(this.locale)
       } else if (header.type === 'currency') {
-        const value = parseInt(cellValue)
+        const value = parseFloat(cellValue)
         return currencyFormatter.format(value, {
           code: row.currency || null
         })
