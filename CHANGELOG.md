@@ -1,3 +1,10 @@
+## [3.6.2](https://github.com/tillhub/vue-table-page/compare/v3.6.1...v3.6.2) (2019-02-12)
+
+
+### Bug Fixes
+
+* made currency a float so it won't round and fix pagination height ([ea7ae87](https://github.com/tillhub/vue-table-page/commit/ea7ae87))
+
 ## [3.6.1](https://github.com/tillhub/vue-table-page/compare/v3.6.0...v3.6.1) (2019-01-18)
 
 
