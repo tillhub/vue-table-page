@@ -170,4 +170,7 @@ export default {
 </script>
 
 <style scoped>
+.el-table >>> th .cell{
+  white-space: unset;
+}
 </style>
