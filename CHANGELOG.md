@@ -1,3 +1,10 @@
+# [3.7.0](https://github.com/tillhub/vue-table-page/compare/v3.6.2...v3.7.0) (2019-02-21)
+
+
+### Features
+
+* headers do not wrap ([837a529](https://github.com/tillhub/vue-table-page/commit/837a529))
+
 ## [3.6.2](https://github.com/tillhub/vue-table-page/compare/v3.6.1...v3.6.2) (2019-02-12)
 
 
