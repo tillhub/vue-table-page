@@ -1,3 +1,10 @@
+# [3.8.0](https://github.com/tillhub/vue-table-page/compare/v3.7.0...v3.8.0) (2019-02-27)
+
+
+### Features
+
+* added oveflow tool tip option. fixed css ([f6b7f05](https://github.com/tillhub/vue-table-page/commit/f6b7f05))
+
 # [3.7.0](https://github.com/tillhub/vue-table-page/compare/v3.6.2...v3.7.0) (2019-02-21)
 
 
