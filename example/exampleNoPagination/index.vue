@@ -2,6 +2,7 @@
   <vue-table-page
     title="Example Page With No Footer"
     hide-pagination
+    show-overflow-tooltip
     :table-data="tableData"
     :headers="tableHeaders"
     :message="message">

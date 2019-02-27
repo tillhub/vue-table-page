@@ -38,6 +38,7 @@
           <slot name="page-table" />
           <default-table
             v-show="showDefaultTable"
+            :show-overflow-tooltip="showOverflowTooltip"
             :using-table="showDefaultTable"
             :table="tableData"
             :headers="headers"

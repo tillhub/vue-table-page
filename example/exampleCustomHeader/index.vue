@@ -1,6 +1,7 @@
 <template>
   <vue-table-page
     fixed-header
+    show-overflow-tooltip
     :table-data="tableData"
     :headers="tableHeaders"
     :page="page">
@@ -34,13 +35,13 @@ export default {
       tableHeaders: [{
         label: 'Date',
         value: 'date',
-        minWidth: '45',
+
         sortable: true,
         type: 'date'
       }, {
         label: 'Name',
         value: 'firstname',
-        minWidth: '45',
+
         sortable: true,
         format: this.formatName
       }, {
