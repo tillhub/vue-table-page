@@ -60,6 +60,7 @@
         <slot name="page-table" />
         <default-table
           v-show="showDefaultTable"
+          :show-overflow-tooltip="showOverflowTooltip"
           :using-table="showDefaultTable"
           :table="tableData"
           :headers="headers"
@@ -177,6 +178,10 @@ export default {
     bodyCard: {
       type: Boolean,
       default: false
+    },
+    showOverflowTooltip: {
+      type: Boolean,
+      default: false
     }
   },
   beforeMount () {
@@ -275,10 +280,9 @@ span {
 
 .el-icon-info {
   color: #269ff6;
-  font-size: x-large;
+  font-size: larger;
   cursor: pointer;
   margin: 10px;
-
 }
 
 .el-icon-info:hover {

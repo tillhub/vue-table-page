@@ -1,5 +1,4 @@
 <template>
-
   <el-table
     ref="defaultTable"
     :height="tableHeight"
@@ -8,6 +7,7 @@
     @sort-change="sortChange">
     <el-table-column
       v-for="(header, i) in headers"
+      :show-overflow-tooltip="showOverflowTooltip"
       :fixed="header.fixed || false"
       :key="i"
       :label="header.label"
@@ -20,7 +20,6 @@
       </template>
     </el-table-column>
   </el-table>
-
 </template>
 
 <script>
@@ -72,6 +71,10 @@ export default {
       required: true
     },
     remoteSort: {
+      type: Boolean,
+      default: false
+    },
+    showOverflowTooltip: {
       type: Boolean,
       default: false
     }
@@ -170,6 +173,11 @@ export default {
 </script>
 
 <style scoped>
+.el-table >>> td,
+.el-table >>> th{
+  padding: 10px 0px !important;
+}
+
 .el-table >>> th .cell{
   white-space: unset;
 }
