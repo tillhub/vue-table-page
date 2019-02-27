@@ -15,14 +15,17 @@
           @toggle-show="toggleShow"/>
         <el-row
           type="flex"
-          justify="space-between">
-          <div class="flex">
+          justify="space-between"
+          align="middle">
+          <el-row
+            type="flex"
+            align="middle">
             <i
               class="el-icon-info"
               v-show="showInfoButton"
               @click="toggleShow"/>
             <slot name="header-left" />
-          </div>
+          </el-row>
           <div class="flex">
             <slot name="header-right" />
           </div>
@@ -300,4 +303,5 @@ span {
     font-weight: bold;
     padding: 20px;
 }
+
 </style>
