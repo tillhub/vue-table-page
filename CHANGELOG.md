@@ -1,3 +1,10 @@
+# [3.9.0](https://github.com/tillhub/vue-table-page/compare/v3.8.0...v3.9.0) (2019-02-27)
+
+
+### Features
+
+* fixing overflow tooltip ([7621eb5](https://github.com/tillhub/vue-table-page/commit/7621eb5))
+
 # [3.8.0](https://github.com/tillhub/vue-table-page/compare/v3.7.0...v3.8.0) (2019-02-27)
 
 
