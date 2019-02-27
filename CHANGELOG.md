@@ -1,3 +1,10 @@
+# [3.10.0](https://github.com/tillhub/vue-table-page/compare/v3.9.0...v3.10.0) (2019-02-27)
+
+
+### Features
+
+* align header ([60a35b9](https://github.com/tillhub/vue-table-page/commit/60a35b9))
+
 # [3.9.0](https://github.com/tillhub/vue-table-page/compare/v3.8.0...v3.9.0) (2019-02-27)
 
 
