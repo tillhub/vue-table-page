@@ -304,4 +304,7 @@ span {
     padding: 20px;
 }
 
+.el-table__body-wrapper{
+  overflow: auto;
+}
 </style>
