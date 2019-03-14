@@ -177,16 +177,14 @@ export default {
   color: #232e3d !important;
 }
 
-.el-table thead {
-  color: #232e3d !important;
-}
-
 .el-table >>> td,
 .el-table >>> th{
+  color: #232e3d !important;
   padding: 10px 0px !important;
 }
 
 .el-table >>> th .cell{
+  color: #232e3d !important;
   white-space: unset;
 }
 </style>
