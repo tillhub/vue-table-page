@@ -173,6 +173,14 @@ export default {
 </script>
 
 <style scoped>
+.el-table {
+  color: #232e3d !important;
+}
+
+.el-table thead {
+  color: #232e3d !important;
+}
+
 .el-table >>> td,
 .el-table >>> th{
   padding: 10px 0px !important;
