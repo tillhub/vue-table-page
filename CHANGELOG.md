@@ -1,3 +1,10 @@
+# [3.12.0](https://github.com/tillhub/vue-table-page/compare/v3.11.0...v3.12.0) (2019-03-14)
+
+
+### Features
+
+* fix header color ([261113a](https://github.com/tillhub/vue-table-page/commit/261113a))
+
 # [3.11.0](https://github.com/tillhub/vue-table-page/compare/v3.10.0...v3.11.0) (2019-03-14)
 
 
