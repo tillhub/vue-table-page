@@ -1,3 +1,10 @@
+# [3.11.0](https://github.com/tillhub/vue-table-page/compare/v3.10.0...v3.11.0) (2019-03-14)
+
+
+### Features
+
+* added default color ([2cf5e2a](https://github.com/tillhub/vue-table-page/commit/2cf5e2a))
+
 # [3.10.0](https://github.com/tillhub/vue-table-page/compare/v3.9.0...v3.10.0) (2019-02-27)
 
 
