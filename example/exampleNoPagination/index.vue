@@ -5,6 +5,7 @@
     show-overflow-tooltip
     :table-data="tableData"
     :headers="tableHeaders"
+    :default-sort="{prop: 'firstname', order: 'ascending'}"
     :message="message">
     <header-example
       slot="header-left"

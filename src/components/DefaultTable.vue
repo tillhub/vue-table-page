@@ -4,6 +4,7 @@
     :height="tableHeight"
     :data="tablePage"
     :max-height="tableMaxHeight"
+    :default-sort="defaultSort"
     @sort-change="sortChange">
     <el-table-column
       v-for="(header, i) in headers"
@@ -69,6 +70,10 @@ export default {
     emptyDisplay: {
       type: String,
       required: true
+    },
+    defaultSort: {
+      type: Object,
+      default: () => {}
     },
     remoteSort: {
       type: Boolean,
@@ -146,7 +151,7 @@ export default {
     },
     getSortableType (sortable) {
       if (sortable) {
-        return this.hidePagination ? sortable : 'custom'
+        return this.hidePagination ? true : sortable
       }
       return false
     },

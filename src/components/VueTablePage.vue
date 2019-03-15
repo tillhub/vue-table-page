@@ -76,6 +76,7 @@
           :table-height="tableHeight"
           :empty-display="emptyDisplay"
           :remote-sort="remoteSort"
+          :default-sort="defaultSort"
           @table-change="$emit('table-change', $event)"
           @sort-change="$emit('sort-change', $event)" />
       </div>
@@ -186,6 +187,13 @@ export default {
     showOverflowTooltip: {
       type: Boolean,
       default: false
+    },
+    defaultSort: {
+      type: Object,
+      validator: (obj) => {
+        return (obj.prop || obj.prop === null) && (obj.order || obj.order === null)
+      },
+      default: () => {}
     }
   },
   beforeMount () {
