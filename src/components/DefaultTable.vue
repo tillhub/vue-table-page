@@ -87,8 +87,7 @@ export default {
   data () {
     return {
       tablePage: this.table,
-      tableData: this.table,
-      info: {}
+      tableData: this.table
     }
   },
   mounted () {
@@ -105,7 +104,7 @@ export default {
   },
   methods: {
     tableChange (table) {
-      if (this.usingTable) {
+      if (this.usingTable && !this.remoteSort) {
         this.$refs.defaultTable.clearSort()
       }
       if (this.hidePagination) {
@@ -123,8 +122,6 @@ export default {
       this.$emit('table-change', newTable)
     },
     sortChange (info) {
-      this.info = info
-
       if (this.remoteSort) {
         return this.$emit('sort-change', info)
       } else {
@@ -151,7 +148,7 @@ export default {
     },
     getSortableType (sortable) {
       if (sortable) {
-        return this.hidePagination ? true : sortable
+        return this.hidePagination ? true : 'custom'
       }
       return false
     },

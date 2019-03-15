@@ -53,6 +53,7 @@
             :table-height="tableHeight"
             :empty-display="emptyDisplay"
             :remote-sort="remoteSort"
+            :default-sort="defaultSort"
             @table-change="$emit('table-change', $event)"
             @sort-change="$emit('sort-change', $event)" />
         </el-card>
