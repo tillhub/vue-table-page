@@ -1,3 +1,10 @@
+# [3.13.0](https://github.com/tillhub/vue-table-page/compare/v3.12.0...v3.13.0) (2019-03-15)
+
+
+### Features
+
+* added custom sort ([78f3871](https://github.com/tillhub/vue-table-page/commit/78f3871))
+
 # [3.12.0](https://github.com/tillhub/vue-table-page/compare/v3.11.0...v3.12.0) (2019-03-14)
 
 
