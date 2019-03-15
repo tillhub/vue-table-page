@@ -146,7 +146,7 @@ export default {
     },
     getSortableType (sortable) {
       if (sortable) {
-        return this.hidePagination ? true : 'custom'
+        return this.hidePagination ? sortable : 'custom'
       }
       return false
     },
