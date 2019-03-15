@@ -1,3 +1,10 @@
+# [3.14.0](https://github.com/tillhub/vue-table-page/compare/v3.13.0...v3.14.0) (2019-03-15)
+
+
+### Features
+
+* added default sort prop ([ebf193e](https://github.com/tillhub/vue-table-page/commit/ebf193e))
+
 # [3.13.0](https://github.com/tillhub/vue-table-page/compare/v3.12.0...v3.13.0) (2019-03-15)
 
 
