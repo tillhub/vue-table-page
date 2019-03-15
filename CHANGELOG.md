@@ -1,3 +1,10 @@
+## [3.14.1](https://github.com/tillhub/vue-table-page/compare/v3.14.0...v3.14.1) (2019-03-15)
+
+
+### Bug Fixes
+
+* fix sort field clear ([81fde9c](https://github.com/tillhub/vue-table-page/commit/81fde9c))
+
 # [3.14.0](https://github.com/tillhub/vue-table-page/compare/v3.13.0...v3.14.0) (2019-03-15)
 
 
