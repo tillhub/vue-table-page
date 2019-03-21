@@ -5,7 +5,9 @@
     :data="tablePage"
     :max-height="tableMaxHeight"
     :default-sort="defaultSort"
-    @sort-change="sortChange">
+    @sort-change="sortChange"
+    :show-summary="showSummary"
+    :summary-method="summaryMethod" >
     <el-table-column
       v-for="(header, i) in headers"
       :show-overflow-tooltip="showOverflowTooltip"
@@ -82,6 +84,14 @@ export default {
     showOverflowTooltip: {
       type: Boolean,
       default: false
+    },
+    showSummary: {
+      type: Boolean,
+      default: false
+    },
+    summaryMethod: {
+      type: Function,
+      default: undefined
     }
   },
   data () {
