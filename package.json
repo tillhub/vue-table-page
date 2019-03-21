@@ -1,6 +1,6 @@
 {
   "name": "@tillhub/vue-table-page",
-  "version": "3.14.1",
+  "version": "3.15.0",
   "description": "Extended pagination based on Element-UI.",
   "author": "Jessica Kellogg",
   "private": false,

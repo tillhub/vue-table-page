@@ -1,3 +1,10 @@
+# [3.15.0](https://github.com/tillhub/vue-table-page/compare/v3.14.1...v3.15.0) (2019-03-21)
+
+
+### Features
+
+* **default-table:** Add attribute for show-summary and summary-method ([05d98c8](https://github.com/tillhub/vue-table-page/commit/05d98c8))
+
 ## [3.14.1](https://github.com/tillhub/vue-table-page/compare/v3.14.0...v3.14.1) (2019-03-15)
 
 
