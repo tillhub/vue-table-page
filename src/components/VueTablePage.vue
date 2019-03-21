@@ -55,7 +55,9 @@
             :remote-sort="remoteSort"
             :default-sort="defaultSort"
             @table-change="$emit('table-change', $event)"
-            @sort-change="$emit('sort-change', $event)" />
+            @sort-change="$emit('sort-change', $event)"
+            :show-summary="showSummary"
+            :summary-method="summaryMethod"/>
         </el-card>
       </div>
       <div
@@ -79,7 +81,9 @@
           :remote-sort="remoteSort"
           :default-sort="defaultSort"
           @table-change="$emit('table-change', $event)"
-          @sort-change="$emit('sort-change', $event)" />
+          @sort-change="$emit('sort-change', $event)"
+          :show-summary="showSummary"
+          :summary-method="summaryMethod" />
       </div>
     </div>
     <div v-show="!hidePagination">
@@ -195,6 +199,14 @@ export default {
         return (obj.prop || obj.prop === null) && (obj.order || obj.order === null)
       },
       default: () => {}
+    },
+    showSummary: {
+      type: Boolean,
+      default: false
+    },
+    summaryMethod: {
+      type: Function,
+      default: undefined
     }
   },
   beforeMount () {
