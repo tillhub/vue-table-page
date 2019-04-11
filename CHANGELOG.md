@@ -1,3 +1,10 @@
+# [3.16.0](https://github.com/tillhub/vue-table-page/compare/v3.15.0...v3.16.0) (2019-04-11)
+
+
+### Features
+
+* added `no-data` slot ([6ae1c8b](https://github.com/tillhub/vue-table-page/commit/6ae1c8b))
+
 # [3.15.0](https://github.com/tillhub/vue-table-page/compare/v3.14.1...v3.15.0) (2019-03-21)
 
 
