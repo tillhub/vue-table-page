@@ -1,17 +1,15 @@
 <template>
-  <div class="footer-content">
-    <div class="flex">
-      <span class="page-count">{{ first }}-{{ last }} of {{ tableLength }} items</span>
-      <el-pagination
-        layout="sizes, prev, pager, next, jumper"
-        :current-page.sync="currentPage"
-        :page-sizes="pageSizes"
-        :page-size="pageSize"
-        :total="tableLength"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-      />
-    </div>
+  <div class="footer">
+    <span>{{ first }}-{{ last }} of {{ tableLength }} items</span>
+    <el-pagination
+      layout="sizes, prev, pager, next, jumper"
+      :current-page.sync="currentPage"
+      :page-sizes="pageSizes"
+      :page-size="pageSize"
+      :total="tableLength"
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+    />
   </div>
 </template>
 
@@ -88,30 +86,21 @@ export default {
 }
 </script>
 
-<style>
-.footer-content {
-  width: 100%;
-  display: flex;
-  padding: 14px 0px;
-  justify-content: center;
+<style scoped>
+.footer {
+  padding: 25px;
   background-color: #fafafa;
-}
-
-.page-count {
-  margin: 5px;
-  font-size: 16px;
-}
-
-.footer-content > div > .el-pagination > ul > li,
-.el-pagination .btn-next,
-.el-pagination .btn-prev {
-  background-color: transparent !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 16px !important;
 }
 
-.footer-content > div > .el-pagination .btn-next .el-icon,
-.el-pagination .btn-prev .el-icon {
-  background-color: transparent !important;
-  font-size: 16px !important;
+.footer >>> .el-pagination button {
+  background-color: transparent!important;
+}
+
+.footer >>> .el-pager li {
+  background-color: transparent!important;
 }
 </style>

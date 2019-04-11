@@ -1,98 +1,80 @@
 <template>
   <div
     id="vue-table-page">
-    <div class="table-page-main">
-      <div
-        ref="tablePageHeader"
-        :style="headerStyle">
-        <span
-          class="header-title"
-          v-if="title">{{ title }}</span>
-        <message-box
-          v-if="message"
-          :message="message"
-          :show="show"
-          @toggle-show="toggleShow"/>
+    <div
+      ref="tablePageHeader"
+      class="header"
+      :style="headerStyle">
+      <span
+        class="header-title"
+        v-if="title">{{ title }}</span>
+      <message-box
+        v-if="message"
+        :message="message"
+        :show="show"
+        @toggle-show="toggleShow"/>
+      <el-row
+        type="flex"
+        justify="space-between"
+        align="middle">
         <el-row
           type="flex"
-          justify="space-between"
           align="middle">
-          <el-row
-            type="flex"
-            align="middle">
-            <i
-              class="el-icon-info"
-              v-show="showInfoButton"
-              @click="toggleShow"/>
-            <slot name="header-left" />
-          </el-row>
-          <div class="flex">
-            <slot name="header-right" />
-          </div>
+          <i
+            class="el-icon-info"
+            v-show="showInfoButton"
+            @click="toggleShow"/>
+          <slot name="header-left" />
         </el-row>
-      </div>
-      <div
-        v-if="bodyCard"
-        :style="{ height, padding: '10px', width: `calc(100% - 20px)`}">
-        <el-card
-          class="table-page-body"
-          :style="{ height: '100%', width: '100%' }"
-          :body-style="{ height: '100%', padding: '0px' }">
-          <slot name="page-table" />
-          <default-table
-            v-show="showDefaultTable"
-            :show-overflow-tooltip="showOverflowTooltip"
-            :using-table="showDefaultTable"
-            :table="tableData"
-            :headers="headers"
-            :page="pageInfo"
-            :page-sizes="pageSizes"
-            :hide-pagination="hidePagination"
-            :locale="locale"
-            :table-max-height="tableMaxHeight"
-            :table-height="tableHeight"
-            :empty-display="emptyDisplay"
-            :remote-sort="remoteSort"
-            :default-sort="defaultSort"
-            @table-change="$emit('table-change', $event)"
-            @sort-change="$emit('sort-change', $event)"
-            :show-summary="showSummary"
-            :summary-method="summaryMethod"/>
-        </el-card>
-      </div>
-      <div
-        v-else
-        class="table-page-body"
-        :style="{ height }">
-        <slot name="page-table" />
-        <default-table
-          v-show="showDefaultTable"
-          :show-overflow-tooltip="showOverflowTooltip"
-          :using-table="showDefaultTable"
-          :table="tableData"
-          :headers="headers"
-          :page="pageInfo"
-          :page-sizes="pageSizes"
-          :hide-pagination="hidePagination"
-          :locale="locale"
-          :table-max-height="tableMaxHeight"
-          :table-height="tableHeight"
-          :empty-display="emptyDisplay"
-          :remote-sort="remoteSort"
-          :default-sort="defaultSort"
-          @table-change="$emit('table-change', $event)"
-          @sort-change="$emit('sort-change', $event)"
-          :show-summary="showSummary"
-          :summary-method="summaryMethod" />
-      </div>
+        <div class="flex">
+          <slot name="header-right" />
+        </div>
+      </el-row>
     </div>
-    <div v-show="!hidePagination">
-      <pagination-footer
-        :table-length="tableLength"
-        :show-default-table="showDefaultTable"
+    <el-card
+      class="content"
+      :body-style="{ height: '100%', padding: '0px' }"
+      v-show="!showNoData"
+    >
+      <slot name="page-table" />
+      <default-table
+        v-show="showDefaultTable"
+        :show-overflow-tooltip="showOverflowTooltip"
+        :using-table="showDefaultTable"
+        :table="tableData"
+        :headers="headers"
         :page="pageInfo"
-        @page-change="pageChange"/>
-    </div>
+        :page-sizes="pageSizes"
+        :hide-pagination="hidePagination"
+        :locale="locale"
+        :table-max-height="tableMaxHeight"
+        :table-height="tableHeight"
+        :empty-display="emptyDisplay"
+        :remote-sort="remoteSort"
+        :default-sort="defaultSort"
+        @table-change="$emit('table-change', $event)"
+        @sort-change="$emit('sort-change', $event)"
+        :show-summary="showSummary"
+        :summary-method="summaryMethod"/>
+    </el-card>
+    <el-card
+      class="content"
+      :body-style="{ height: '100%', padding: '0px' }"
+      v-show="showNoData"
+    >
+      <slot name="no-data">
+        <div class="no-data-default">
+          <div>No data</div>
+        </div>
+      </slot>
+    </el-card>
+    <pagination-footer
+      v-show="!hidePagination"
+      :table-length="tableLength"
+      :show-default-table="showDefaultTable"
+      :page="pageInfo"
+      @page-change="pageChange"
+    />
   </div>
 </template>
 
@@ -185,10 +167,6 @@ export default {
       type: Object,
       default: () => {}
     },
-    bodyCard: {
-      type: Boolean,
-      default: false
-    },
     showOverflowTooltip: {
       type: Boolean,
       default: false
@@ -248,6 +226,9 @@ export default {
       const marginCalc = this.bodyCard ? 20 : 0
       this.$emit('height-change', `calc(100% - ${currentHeight}px`)
       return `calc(100% - ${currentHeight}px - ${marginCalc}px)`
+    },
+    showNoData () {
+      return !this.tableData.length
     }
   },
   methods: {
@@ -280,7 +261,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 li,
 div,
 span {
@@ -291,6 +272,27 @@ span {
   display: flex;
 }
 
+.header {
+  margin: 25px 25px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  margin: 25px;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.footer {
+  padding: 25px;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px !important;
+}
+
 #vue-table-page {
   height: 100%;
   width: 100%;
@@ -298,34 +300,34 @@ span {
   flex-direction: column;
 }
 
-.table-page-main {
-  height: 100%;
-  overflow: auto;
-}
-
 .el-icon-info {
   color: #269ff6;
   font-size: larger;
   cursor: pointer;
-  margin: 10px;
+  margin-right: 10px;
 }
 
 .el-icon-info:hover {
   color: #1b7abe;
 }
 
-.table-page-body {
-  overflow: auto
-}
-
 .header-title {
-    display: block;
-    font-size: 2em;
-    font-weight: bold;
-    padding: 20px;
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+  padding: 20px;
 }
 
 .el-table__body-wrapper{
   overflow: auto;
+}
+
+.no-data-default {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: larger;
 }
 </style>
