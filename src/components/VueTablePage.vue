@@ -285,7 +285,7 @@ span {
 }
 
 .footer {
-  padding: 25px;
+  height: 60px;
   background-color: #fafafa;
   display: flex;
   justify-content: center;
