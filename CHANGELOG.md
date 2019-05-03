@@ -1,3 +1,10 @@
+## [3.16.1](https://github.com/tillhub/vue-table-page/compare/v3.16.0...v3.16.1) (2019-05-03)
+
+
+### Bug Fixes
+
+* adjust footer height ([d35a4ba](https://github.com/tillhub/vue-table-page/commit/d35a4ba))
+
 # [3.16.0](https://github.com/tillhub/vue-table-page/compare/v3.15.0...v3.16.0) (2019-04-11)
 
 
