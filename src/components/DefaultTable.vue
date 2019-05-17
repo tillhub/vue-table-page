@@ -139,6 +139,7 @@ export default {
         if (!info.order) {
           this.tableData = [...this.table]
         } else {
+          this.info = info
           this.tableData = [...this.table].sort(this.compareRow)
         }
         this.pageChange(this.page)
