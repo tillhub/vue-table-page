@@ -1,3 +1,10 @@
+## [3.16.2](https://github.com/tillhub/vue-table-page/compare/v3.16.1...v3.16.2) (2019-05-17)
+
+
+### Bug Fixes
+
+* table sort ([b96edc7](https://github.com/tillhub/vue-table-page/commit/b96edc7))
+
 ## [3.16.1](https://github.com/tillhub/vue-table-page/compare/v3.16.0...v3.16.1) (2019-05-03)
 
 
