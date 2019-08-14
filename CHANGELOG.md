@@ -4,6 +4,19 @@
 ### Bug Fixes
 
 * **table:** remove message box ([e4c5a0b](https://github.com/tillhub/vue-table-page/commit/e4c5a0b))
+* **table:** small change to force deployment ([507be3a](https://github.com/tillhub/vue-table-page/commit/507be3a))
+
+
+### Features
+
+* **table): feat(table:** use message slot instead of message box ([83b5a9d](https://github.com/tillhub/vue-table-page/commit/83b5a9d))
+
+# [3.17.0](https://github.com/tillhub/vue-table-page/compare/v3.16.3...v3.17.0) (2019-08-14)
+
+
+### Bug Fixes
+
+* **table:** remove message box ([e4c5a0b](https://github.com/tillhub/vue-table-page/commit/e4c5a0b))
 
 
 ### Features
