@@ -1,3 +1,10 @@
+# [3.17.0](https://github.com/tillhub/vue-table-page/compare/v3.16.3...v3.17.0) (2019-08-14)
+
+
+### Features
+
+* **table): feat(table:** use message slot instead of message box ([83b5a9d](https://github.com/tillhub/vue-table-page/commit/83b5a9d))
+
 ## [3.16.3](https://github.com/tillhub/vue-table-page/compare/v3.16.2...v3.16.3) (2019-08-14)
 
 
