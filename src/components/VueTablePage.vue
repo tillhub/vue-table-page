@@ -14,7 +14,8 @@
         align="middle">
         <el-row
           type="flex"
-          align="middle">
+          align="middle"
+        >
           <slot name="message" />
           <slot name="header-left" />
         </el-row>
