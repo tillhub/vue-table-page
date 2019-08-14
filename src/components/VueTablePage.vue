@@ -11,7 +11,8 @@
       <el-row
         type="flex"
         justify="space-between"
-        align="middle">
+        align="middle"
+      >
         <el-row
           type="flex"
           align="middle"
