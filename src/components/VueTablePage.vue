@@ -8,11 +8,6 @@
       <span
         class="header-title"
         v-if="title">{{ title }}</span>
-      <message-box
-        v-if="message"
-        :message="message"
-        :show="show"
-        @toggle-show="toggleShow"/>
       <el-row
         type="flex"
         justify="space-between"
@@ -20,10 +15,7 @@
         <el-row
           type="flex"
           align="middle">
-          <i
-            class="el-icon-info"
-            v-show="showInfoButton"
-            @click="toggleShow"/>
+          <slot name="message" />
           <slot name="header-left" />
         </el-row>
         <div class="flex">
@@ -80,7 +72,6 @@
 
 <script>
 import ElementLocale from 'element-ui/lib/locale'
-import MessageBox from './MessageBox.vue'
 import PaginationFooter from './PaginationFooter.vue'
 import DefaultTable from './DefaultTable.vue'
 import enLocale from 'element-ui/lib/locale/lang/en'
@@ -89,7 +80,6 @@ import deLocale from 'element-ui/lib/locale/lang/de'
 export default {
   name: 'VueTablePage',
   components: {
-    MessageBox,
     PaginationFooter,
     DefaultTable
   },
@@ -107,14 +97,6 @@ export default {
       default: ''
     },
     fixedHeader: {
-      type: Boolean,
-      default: false
-    },
-    message: {
-      type: String,
-      default: ''
-    },
-    showMessage: {
       type: Boolean,
       default: false
     },
@@ -200,13 +182,11 @@ export default {
   },
   data () {
     return {
-      show: this.message.length ? this.showMessage : false,
       tableLength: this.tableSize === null ? this.tableData.length : this.tableSize,
       showDefaultTable: !this.$slots['page-table'],
       pageInfo: this.getPage(this.page),
       initialHeight: '100%',
-      heightWithInfoBox: '100%',
-      showInfoButton: this.message.length
+      heightWithInfoBox: '100%'
     }
   },
   watch: {
@@ -281,7 +261,6 @@ span {
 .content {
   margin: 25px;
   flex-grow: 1;
-  overflow-y: auto;
 }
 
 .footer {
