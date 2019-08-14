@@ -1,3 +1,10 @@
+## [3.16.3](https://github.com/tillhub/vue-table-page/compare/v3.16.2...v3.16.3) (2019-08-14)
+
+
+### Bug Fixes
+
+* **table:** make table scrollable ([b3a47d0](https://github.com/tillhub/vue-table-page/commit/b3a47d0))
+
 ## [3.16.2](https://github.com/tillhub/vue-table-page/compare/v3.16.1...v3.16.2) (2019-05-17)
 
 
