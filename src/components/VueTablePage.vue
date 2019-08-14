@@ -281,7 +281,7 @@ span {
 .content {
   margin: 25px;
   flex-grow: 1;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .footer {
