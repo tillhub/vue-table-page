@@ -1,3 +1,10 @@
+# [3.17.0](https://github.com/tillhub/vue-table-page/compare/v3.16.2...v3.17.0) (2019-08-14)
+
+
+### Features
+
+* **deps:** update to latest ([0fc3114](https://github.com/tillhub/vue-table-page/commit/0fc3114))
+
 ## [3.16.2](https://github.com/tillhub/vue-table-page/compare/v3.16.1...v3.16.2) (2019-05-17)
 
 
