@@ -46,7 +46,7 @@
     "element-ui": "^2.3.6",
     "gh-pages": "^1.2.0",
     "rimraf": "^2.6.0",
-    "semantic-release": "^15.9.17",
+    "semantic-release": "^17.2.3",
     "validate-commit-msg": "^2.14.0",
     "vue": "^2.5.2",
     "vue-template-compiler": "^2.5.17"
